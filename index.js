@@ -3,21 +3,20 @@ var model = require('./model.js')
 var controller = require('./controller.js')
 
 const app = express()
-	app.set('port', process.env.PORT || 3000);
-	app.use('/', function (req, res) {
-			res.send('Hello Chris!')
-			})
+app.set('port', process.env.PORT || 3000);
+app.use('/', function (req, res) {
+	res.send('Hello Chris!')
+})
 
 app.use('/target', function (req, res) {
-
-		res.send('Target!')
-		})
+	res.send('Target!')
+})
 
 app.use('/air',  function(req, res){
-
-		res.send(200);
-		})
+	controller.database();
+	res.send('Hi!');
+})
 
 app.listen(app.get('port'), function () {
-		console.log('Example app listening on port 3000!');
-		})
+	console.log('Example app listening on port 3000!');
+})
