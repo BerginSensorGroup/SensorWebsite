@@ -1,6 +1,6 @@
-const express = require('express')
-const model = require('/model.js')
-const controller = require('/controller.js')
+var express = require('express')
+var model = require('./model.js')
+var controller = require('./controller.js')
 
 const app = express()
 	app.set('port', process.env.PORT || 3000);
