@@ -9,11 +9,14 @@ module.exports = {
       port     : '3306',
       user     : 'berginlab',
       password : 'Mike*sandals'
+      //user:'root',
+      //password:'SUPERSECUREPASSWORD'
     });
 
     connection.connect(function(err) {
     	if (err)
       {
+        console.log('err');
     		console.error('error connecting: ' + err.stack);
     		return;
     	}
