@@ -1,9 +1,14 @@
 var express = require('express')
 var model = require('./model.js')
 var controller = require('./controller.js')
+var path = require('path')
+var app = express()
 
-const app = express()
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Define the port to run on
 app.set('port', process.env.PORT || 3000);
+
 app.get('/', function (req, res) {
 	res.send('Hello Chris!')
 })
@@ -17,6 +22,7 @@ app.get('/air',  function(req, res){
 	res.send('Hi!');
 })
 
+// Listen for requests
 app.listen(app.get('port'), function () {
 	console.log('Example app listening on port 3000!');
 })

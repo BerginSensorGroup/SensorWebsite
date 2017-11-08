@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"  
-},
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BerginSensorGroup/SensorWebsite.git"
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BerginSensorGroup/SensorWebsite/issues"
   },
-  "homepage": "https://github.com/BerginSensorGroup/SensorWebsite#readme"
+  "homepage": "https://github.com/BerginSensorGroup/SensorWebsite#readme",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
 }
