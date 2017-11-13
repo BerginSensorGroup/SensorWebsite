@@ -22,6 +22,12 @@ app.get('/air',  function(req, res){
 	res.send('Hi!');
 })
 
+app.get('/test',  function(req, res){
+	controller.connect();
+	controller.testair();
+	res.send('Hi!');
+})
+
 // Listen for requests
 app.listen(app.get('port'), function () {
 	console.log('Example app listening on port 3000!');

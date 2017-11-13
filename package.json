@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/BerginSensorGroup/SensorWebsite#readme",
   "dependencies": {
+    "mysql": "^2.15.0",
     "path": "^0.12.7"
   }
 }
