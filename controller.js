@@ -16,26 +16,37 @@ var connect = exports.connect =  function(){
     {
       console.log('err');
       console.error('error connecting: ' + err.stack);
-      return;
+      return err;
     }
     console.log('connected as id ' + connection.threadId);
+    return connection;
   });
 }
 
 var testair = exports.testair = function(){
+  var connection = mysql.createConnection({
+    host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
+    port     : '3306',
+    user     : 'berginlab',
+    password : 'Mike*sandals',
+    database : 'testair'
+  });
+
   var fakedata = {
     photon_id:'1',
     time:(new Date()).toJSON(),
     pm2:Math.random()
   }
-  connection.query("INSERT INTO test (photon_id, time, pm2) VALUES ?", [fakedata], function(err, result){
+
+  connection.query("INSERT INTO testdata SET ?", [fakedata], function(err, result){
     if(err) {
       console.log('err');
       console.error('error connecting: ' + err.stack);
-      return;
+      return err;
     }
     console.log("Inserted :" + result);
     console.log("Inserted Fake Information");
+    return fakedata;
   });
 }
 

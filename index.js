@@ -23,10 +23,18 @@ app.get('/air',  function(req, res){
 	res.send('Hi!');
 })
 
+// Send Fake Test Data
 app.get('/test',  function(req, res){
-	controller.connect();
-	controller.testair();
-	res.send('Hi!');
+	controller.testair(function(fakedata,err){
+		if(err)
+		{
+			console.log(err);
+		}
+		else{
+			console.log(fakedata);
+			res.send('Hi!');
+		}
+	});
 })
 
 // Listen for requests
