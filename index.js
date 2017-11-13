@@ -4,6 +4,7 @@ var controller = require('./controller.js')
 var path = require('path')
 var app = express()
 
+// Static files (html/css/js)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Define the port to run on
@@ -24,5 +25,5 @@ app.get('/air',  function(req, res){
 
 // Listen for requests
 app.listen(app.get('port'), function () {
-	console.log('Example app listening on port 3000!');
+	console.log('Sensor Website listening on port 3000!');
 })
