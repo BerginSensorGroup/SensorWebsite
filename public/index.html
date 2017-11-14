@@ -840,6 +840,19 @@
                   <li>Wait for the installation to complete, choose “Close” when done</li>
                 </ol>
 
+                <p>Teensy 1.28 Install:</p>
+                <ol>
+                  <li><a href="https://www.pjrc.com/teensy/td_128/TeensyduinoInstall.exe">Execute TeensyduinoInstall.exe</a></li>
+                  <li>Follow the prompts to install this version of Teensyduino. This will need to be installed in the same location as the Arduino software. On the Select Arduino Folder window, choose the path: C:/Program Files(x86)/Arduino/, and click “Next”.
+                  </li>
+                  <img src="images/appendixb/install-library.png" alt="install Arduino">
+                </ol>
+                <p>To install libraries: make sure all folders included in the screenshots are present in the designated location. Libraries are located in two places on your computer - C:/ Program Files (x86)/Arduino/ libraries, and Your PC:/ Documents/
+                  Arduino / libraries </p>
+                <img src="images/appendixb/SDFolder1.png" alt="SD Folder 1">
+                <p>The SD folder is very important and is normally the one that most computers miss. If the SD folder is not present, download it <a href="https://github.com/PaulStoffregen/SD">here</a></p>
+                <img src="images/appendixb/SDFolder2.png" alt="SD Folder 2">
+
                 <!-- end col -->
               </div>
               <!-- end row -->
@@ -857,6 +870,31 @@
                     to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
                 </div> -->
                 <h4 id="line7_1">Appendix C: Installation of Data Visualization Software <a href="#top">#back to top</a></h4>
+                <ol>
+                  <li><a href="https://cran.rstudio.com">Download R version 2.11.1 or higher</a> Note that if you are a Mac user, you will be asked to <a href="https://cran.rstudio.com">install XQuartz</a></li>
+                  <img src="images/appendixc/download-r.png" alt="download R">
+                  <li><a href="https://www.rstudio.com/products/rstudio/download/">Install RStudio</a></li>
+                  <img src="images/appendixc/install-rstudio.png" alt="install R Studio">
+                  <li>Install Shiny web application framework in RStudio. Go to the “Packages” tab, click “Install”, and type in “shiny”. Make sure that the “Install dependencies” checkbox is selected.</li>
+                  <img src="images/appendixc/install-shinyapp.png" alt="install Shiny App">
+                  <img src="images/appendixc/install-dependencies.png" alt="install Dependencies">
+                </ol>
+                <p>To set up RStudio for data visualization:</p>
+                <ol>
+                  <li>If you have not already, install the “shiny” and “xts” packages, as well as their dependencies. Refer to steps 3 and 4 of the previous section, “Setup: Installation”, for instructions.</li>
+                  <li>Make a folder where you want to store this project, and create two directories “Calibrator” and “Plotter” within. You can create new folders from within RStudio by clicking on “New Folder” under the “Files” tab. The example uses “Summer
+                    2016” as the name of the parent folder. You can do this in your computer’s File explorer program. Don’t worry about doing it in R.</li>
+                  <img src="images/appendixc/create-folder.png" alt="create folder">
+                  <li>Within the “Calibrator” folder, place the scripts “app.R”, “AvgTime.R”, “CalConst.R”, “Calibration.R”, and “ShortCut2.R”. In addition, create the new folder “Data”. Within the “Data” folder, create the new folders “Raw Data”, “Cleaned
+                    Data”, “Formatted Data”, “Ready Data” and “Calibration Constants”.</li>
+                  <img src="images/appendixc/scripts.png" alt="scripts">
+                  <li>Similarly, within the “Plotter” folder, place the scripts “app.R” and “ShortCut2.R”. In addition, create the new folder “Data”. Within the “Data” folder create the new folders “Raw Data”, “Cleaned Data”, “Formatted Data”, and “Ready
+                    Data”.
+                  </li>
+                  <li>At this point, you are set to start using the apps. The files that you have should look the same as how the files are stored in the “Summer 2016” Duke Box folder, which is:</li>
+                  <img src="images/appendixc/file-layout.png" alt="scripts">
+                </ol>
+                <p>If additional files “.RData” and “.Rhistory” appear, you can disregard them as they will not affect the apps</p>
                 <!-- end col -->
               </div>
               <!-- end row -->
@@ -874,6 +912,17 @@
                     to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
                 </div> -->
                 <h4 id="line7_1">Appendix D: Additional Files You May Need <a href="#top">#back to top</a></h4>
+
+                <p>The following files should have been provided to you along with this document and/or may be necessary to complete the steps outlined here:</p>
+                <ul>
+                  <li>Gerber files to send in to PCB manufacturer</li>
+                  <li>Bill of materials (excel document) to send to PCB manufacturer if ordering PCB with parts soldered on</li>
+                  <li>Code to upload to the teensy (a .ino file)</li>
+                  <li>3 template files to upload to the SD card (CALI.txt, LAB.txt, TEENSY.txt)</li>
+                  <li>Folders containing the R plotter and calibrator files for running the apps (the code files), and empty named files for housing the versions of the files as the code runs</li>
+                  <li>Teensy libraries (can also be found online) </li>
+
+                </ul>
                 <!-- end col -->
               </div>
               <!-- end row -->
