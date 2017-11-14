@@ -10,14 +10,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Define the port to run on
 app.set('port', process.env.PORT || 3000);
 
+// Home Page
 app.get('/', function (req, res) {
-	res.send('Hello Chris!')
+ 	res.send('Hello Chris!')
 })
 
+// Route Simply Contains a variable that sees how many times this is targeted
 app.get('/target', function (req, res) {
 	res.send('Target!')
 })
 
+// Route Establishes New Database
 app.get('/air',  function(req, res){
 	controller.database();
 	res.send('Hi!');
