@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var exports = module.exports;
 var connection;
 
-var connect = exports.connect =  function(){
+exports.connect =  function(){
   var connection = mysql.createConnection({
     host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
     port     : '3306',
@@ -23,7 +23,7 @@ var connect = exports.connect =  function(){
   });
 }
 
-var testair = exports.testair = function(){
+exports.testair = function(){
   var connection = mysql.createConnection({
     host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
     port     : '3306',
@@ -42,15 +42,15 @@ var testair = exports.testair = function(){
     if(err) {
       console.log('err');
       console.error('error connecting: ' + err.stack);
-      return err;
+      callback(null,err);
     }
     console.log("Inserted :" + result);
     console.log("Inserted Fake Information");
-    return fakedata;
+    callback(fakedata, null);
   });
 }
 
-var database = exports.database = function(){
+exports.database = function(){
   var connection = mysql.createConnection({
     host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
     port     : '3306',
