@@ -4,7 +4,7 @@ var controller = require('./controller.js')
 var path = require('path')
 var app = express()
 
-// Static files (html/css/js)
+// Static files (html/css)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Define the port to run on
