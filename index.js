@@ -12,7 +12,7 @@ app.set('port', process.env.PORT || 3000);
 
 // Home Page
 app.get('/', function (req, res) {
- 	res.send('Hello Chris!')
+ 	res.send('Hello Chris!');
 })
 
 // Route Simply Contains a variable that sees how many times this is targeted
