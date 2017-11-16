@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var exports = module.exports;
 var connection;
 
-exports.connect =  function(){
+exports.connect =  function(callback){
   var connection = mysql.createConnection({
     host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
     port     : '3306',
@@ -16,14 +16,14 @@ exports.connect =  function(){
     {
       console.log('err');
       console.error('error connecting: ' + err.stack);
-      return err;
+      callback(err);
     }
     console.log('connected as id ' + connection.threadId);
-    return connection;
+    callback(null);
   });
 }
 
-exports.testair = function(){
+exports.testair = function(callback){
   var connection = mysql.createConnection({
     host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
     port     : '3306',

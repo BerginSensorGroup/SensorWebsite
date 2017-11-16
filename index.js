@@ -40,6 +40,20 @@ app.get('/test',  function(req, res){
 	});
 })
 
+// Send Fake Test Data
+app.post('/testair',  function(req, res){
+	controller.testair(function(fakedata,err){
+		if(err)
+		{
+			console.log(err);
+		}
+		else{
+			console.log(fakedata);
+			res.send('Hi!');
+		}
+	});
+})
+
 // Listen for requests
 app.listen(app.get('port'), function () {
 	console.log('Sensor Website listening on port 3000!');
