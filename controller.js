@@ -23,6 +23,48 @@ exports.connect =  function(callback){
   });
 }
 
+exports.air = function(data, callback){
+  var connection = mysql.createConnection({
+    host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
+    port     : '3306',
+    user     : 'berginlab',
+    password : 'Mike*sandals',
+    database : 'testair'
+  });
+
+  var pmdata = {
+    date:(new Date()).toJSON(),
+    photon_id: data.photon_id,
+    pm10:data.pm10,
+    pm25:data.pm25,
+    pm100:data.pm100,
+    tpm10:data.tpm10,
+    tpm25:data.tpm25,
+    tpm100:data.tpm100
+  }
+
+  connection.query("INSERT INTO pm2 SET ?", [pmdata], function(err, result){
+    if(err) {
+      console.log('err');
+      console.error('error connecting: ' + err.stack);
+      callback(null,err);
+    }
+    console.log("Inserted :" + result);
+    console.log("Inserted Fake Information");
+  });
+
+  connection.end(function(err){
+    if(err)
+    {
+      console.log(err);
+      console.error('error connecting: ' + err.stack);
+    }
+    console.log('Ended connection');
+    callback(pmdata, null);
+  });
+
+}
+
 exports.testair = function(callback){
   var connection = mysql.createConnection({
     host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',

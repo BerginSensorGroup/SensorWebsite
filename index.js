@@ -7,6 +7,12 @@ var app = express()
 // Static files (html/css)
 app.use(express.static(path.join(__dirname, 'public')));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 // Define the port to run on
 app.set('port', process.env.PORT || 3000);
 
@@ -21,8 +27,17 @@ app.get('/target', function (req, res) {
 })
 
 // Route Establishes New Database
-app.get('/air',  function(req, res){
-	controller.database();
+app.post('/air',  function(req, res){
+	controller.air(req.body, function(err,data){
+		if(err)
+		{
+			console.log(err);
+		}
+		else{
+			console.log(data);
+			res.send('Data Inserted');
+		}
+	});
 	res.send('Hi!');
 })
 
