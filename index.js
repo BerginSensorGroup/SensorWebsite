@@ -29,6 +29,7 @@ app.get('/target', function (req, res) {
 
 // Route Establishes New Database
 app.post('/air',  function(req, res){
+	console.log(req.body);
 	controller.air(req.body, function(err,data){
 		if(err)
 		{

@@ -29,7 +29,7 @@ exports.air = function(data, callback){
     port     : '3306',
     user     : 'berginlab',
     password : 'Mike*sandals',
-    database : 'testair'
+    database : 'air'
   });
 
   var pmdata = {
