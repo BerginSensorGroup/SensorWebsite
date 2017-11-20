@@ -46,6 +46,15 @@ exports.testair = function(callback){
     }
     console.log("Inserted :" + result);
     console.log("Inserted Fake Information");
+  });
+
+  connection.end(function(err){
+    if(err)
+    {
+      console.log(err);
+      console.error('error connecting: ' + err.stack);
+    }
+    console.log('Ended connection');
     callback(fakedata, null);
   });
 }
