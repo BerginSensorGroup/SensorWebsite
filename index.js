@@ -2,6 +2,7 @@ var express = require('express')
 var model = require('./model.js')
 var controller = require('./controller.js')
 var path = require('path')
+var bodyParser = require('body-parser')
 var app = express()
 
 // Static files (html/css)
