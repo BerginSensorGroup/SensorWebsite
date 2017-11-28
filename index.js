@@ -1,6 +1,7 @@
 var express = require('express')
 var model = require('./model.js')
 var controller = require('./controller.js')
+var db = require('./db.js')
 var path = require('path')
 var bodyParser = require('body-parser')
 var app = express()
@@ -22,12 +23,7 @@ app.get('/', function (req, res) {
  	res.send('Hello Chris!');
 })
 
-// Route Simply Contains a variable that sees how many times this is targeted
-app.get('/target', function (req, res) {
-	res.send('Target!')
-})
-
-// Route Establishes New Database
+// Route Inserts PM2 Data
 app.post('/air',  function(req, res){
 	console.log(req.body);
 	controller.air(req.body, function(err,data){
@@ -40,35 +36,22 @@ app.post('/air',  function(req, res){
 			res.send('Data Inserted');
 		}
 	});
-	res.send('Hi!');
+	// res.send('Inserting Air Information!');
 })
 
-// Send Fake Test Data
-app.get('/test',  function(req, res){
-	controller.testair(function(fakedata,err){
-		if(err)
-		{
-			console.log(err);
-		}
-		else{
-			console.log(fakedata);
-			res.send('Hi!');
-		}
-	});
-})
-
-// Send Fake Test Data
-app.post('/testair',  function(req, res){
-	controller.testair(function(fakedata,err){
-		if(err)
-		{
-			console.log(err);
-		}
-		else{
-			console.log(fakedata);
-			res.send('Hi!');
-		}
-	});
+// Route Queries for Device information
+app.get('/air/pm2/:deviceid', function(req, res){
+  console.log("Device Requested: " + req.params.deviceid);
+  db.getDevice(req.params.deviceid, function(err, results){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log("Results returned");
+      res.send(results);
+    }
+  })
+  //res.send('Querying for Device ID');
 })
 
 // Listen for requests

@@ -47,7 +47,7 @@ exports.air = function(data, callback){
     if(err) {
       console.log('err');
       console.error('error connecting: ' + err.stack);
-      callback(null,err);
+      callback(err,null);
     }
     console.log("Inserted :" + result);
     console.log("Inserted Fake Information");
@@ -60,7 +60,7 @@ exports.air = function(data, callback){
       console.error('error connecting: ' + err.stack);
     }
     console.log('Ended connection');
-    callback(pmdata, null);
+    callback(null, pmdata);
   });
 
 }
