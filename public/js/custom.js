@@ -78,4 +78,15 @@
         $(this).parent().addClass('active');
     });
 
+    /* ==============================================
+    TABS ON HOME PAGE -->
+    =============================================== */
+
+    // $(document).ready(function(){
+    //   $('#materials').load('/materials.html');
+    //   $('#pcbparts').load('/pcbparts.html');
+    //   $('#assemblepackages').load('/assemblepackages.html');
+    // });
+
+
 })(jQuery);
