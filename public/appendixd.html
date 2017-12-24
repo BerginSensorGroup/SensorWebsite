@@ -64,17 +64,17 @@
           <!-- Navigation Tabs at Top of Webpage-->
           <ul class="nav nav-tabs">
             <!-- <ul class="nav navbar-nav"> -->
-            <li class="active"><a href="index.html">Overview</a></li>
-            <li><a href="materials.html">Materials and Equipment Needed</a></li>
-            <li><a href="pcbparts.html">Parts Connected to the PCB</a></li>
-            <li><a href="assemblepackages.html">Sensor Packages for Use</a></li>
+            <li><a href="overview.html" onclick="tabClicked()">Overview</a></li>
+            <li><a href="materials.html" onclick="tabClicked()">Materials and Equipment Needed</a></li>
+            <li><a href="pcbparts.html" onclick="tabClicked()">Parts Connected to the PCB</a></li>
+            <li><a href="assemblepackages.html" onclick="tabClicked()">Sensor Packages for Use</a></li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Appendices<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="appendixa.html">Appendix A</a></li>
-                <li><a href="appendixb.html">Appendix B</a></li>
-                <li><a href="appendixc.html">Appendix C</a></li>
-                <li><a href="appendixd.html">Appendix D</a></li>
+                <li><a href="appendixa.html" onclick="tabClicked()">Appendix A</a></li>
+                <li><a href="appendixb.html" onclick="tabClicked()">Appendix B</a></li>
+                <li><a href="appendixc.html" onclick="tabClicked()">Appendix C</a></li>
+                <li><a href="appendixd.html" onclick="tabClicked()">Appendix D</a></li>
               </ul>
             </li>
           </ul>
@@ -91,31 +91,25 @@
 
             <div class="row">
 
-              <h4 id="line7_1">Appendix D: Additional Files You May Need <a href="#top">#back to top</a></h4>
+              <h4 id="line7_1">Appendix D: Additional Files You May Need</h4>
 
               <p>The following files should have been provided to you along with this document and/or may be necessary to complete the steps outlined here:</p>
-              <ul>
+              <ol>
                 <li>Gerber files to send in to PCB manufacturer</li>
                 <li>Bill of materials (excel document) to send to PCB manufacturer if ordering PCB with parts soldered on</li>
-                <li>Code to upload to the teensy (a .ino file)</li>
-                <li>3 template files to upload to the SD card (CALI.txt, LAB.txt, TEENSY.txt)</li>
-                <li>Folders containing the R plotter and calibrator files for running the apps (the code files), and empty named files for housing the versions of the files as the code runs</li>
-                <li>Teensy libraries (can also be found online) </li>
-
-              </ul>
+                <li><a href="https://github.com/BerginSensorGroup/Teensy-Code-and-Libraries/archive/master.zip">Code to upload to the teensy (a .ino file) and Teensy Libraries (can also be found online)</a></li>
+                <li><a href="https://github.com/BerginSensorGroup/SD-Card-Template-Files/archive/master.zip">Template files to upload to the SD card (CALI.txt, LAB.txt, TEENSY.txt)</a></li>
+                <li><a href="https://github.com/BerginSensorGroup/RCode-Calibrator-Plotter/archive/master.zip">Folders containing the R plotter and calibrator files for running the apps (the code files), and empty named files for housing the versions of the files as the code runs</a></li>
+              </ol>
               <!-- end col -->
             </div>
             <!-- end row -->
-
-
+          </section>
+          <!-- end section -->
 
           </section>
           <!-- end section -->
 
-
-
-          </section>
-          <!-- end section -->
         </div>
         <!-- // end .col -->
 

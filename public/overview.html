@@ -41,10 +41,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
-
-
 </head>
 
 <body>
@@ -68,17 +64,17 @@
           <!-- Navigation Tabs at Top of Webpage-->
           <ul class="nav nav-tabs">
             <!-- <ul class="nav navbar-nav"> -->
-            <li class="active"><a href="index.html">Overview</a></li>
-            <li><a href="materials.html">Materials and Equipment Needed</a></li>
-            <li><a href="pcbparts.html">Parts Connected to the PCB</a></li>
-            <li><a href="assemblepackages.html">Sensor Packages for Use</a></li>
+            <li><a href="overview.html" onclick="tabClicked()">Overview</a></li>
+            <li><a href="materials.html" onclick="tabClicked()">Materials and Equipment Needed</a></li>
+            <li><a href="pcbparts.html" onclick="tabClicked()">Parts Connected to the PCB</a></li>
+            <li><a href="assemblepackages.html" onclick="tabClicked()">Sensor Packages for Use</a></li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Appendices<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="appendixa.html">Appendix A</a></li>
-                <li><a href="appendixb.html">Appendix B</a></li>
-                <li><a href="appendixc.html">Appendix C</a></li>
-                <li><a href="appendixd.html">Appendix D</a></li>
+                <li><a href="appendixa.html" onclick="tabClicked()">Appendix A</a></li>
+                <li><a href="appendixb.html" onclick="tabClicked()">Appendix B</a></li>
+                <li><a href="appendixc.html" onclick="tabClicked()">Appendix C</a></li>
+                <li><a href="appendixd.html" onclick="tabClicked()">Appendix D</a></li>
               </ul>
             </li>
           </ul>
@@ -144,7 +140,7 @@
             </div>
           </section>
         </div>
-        <!-- end row -->-->
+        <!-- end row -->
 
         </section>
         <!-- end section -->
@@ -171,10 +167,33 @@
   <script src="js/custom.js"></script>
   <script src="js/main.js"></script>
 
+  <!-- <script>
+    function tabClicked() {
+      localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
+    }
+
+    window.onload = function() {
+      var activeTab = localStorage.getItem('active-tab');
+      // and trigger that tab
+      if (activeTab) {
+        $('[href="' + activeTab + '"]').tab('show');
+      }
+    }
+
+    window.onfocus = function() {
+      var activeTab = localStorage.getItem('active-tab');
+      // and trigger that tab
+      if (activeTab) {
+        $('[href="' + activeTab + '"]').tab('show');
+      }
+    }
+  </script> -->
+
   <script src="js/syntax-highlighter/scripts/shCore.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushJScript.js"></script>
+
 
 
 </body>

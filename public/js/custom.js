@@ -78,15 +78,28 @@
         $(this).parent().addClass('active');
     });
 
-    /* ==============================================
-    TABS ON HOME PAGE -->
-    =============================================== */
-
-    // $(document).ready(function(){
-    //   $('#materials').load('/materials.html');
-    //   $('#pcbparts').load('/pcbparts.html');
-    //   $('#assemblepackages').load('/assemblepackages.html');
-    // });
-
-
 })(jQuery);
+
+/* ==============================================
+INDICATE ACTIVE TABS ON HOME PAGE -->
+=============================================== */
+
+function tabClicked() {
+  localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
+}
+
+window.onload = function() {
+  var activeTab = localStorage.getItem('active-tab');
+  // and trigger that tab
+  if (activeTab) {
+    $('[href="' + activeTab + '"]').tab('show');
+  }
+}
+
+window.onfocus = function() {
+  var activeTab = localStorage.getItem('active-tab');
+  // and trigger that tab
+  if (activeTab) {
+    $('[href="' + activeTab + '"]').tab('show');
+  }
+}
