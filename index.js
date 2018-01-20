@@ -40,9 +40,30 @@ app.post('/air',  function(req, res){
 })
 
 // Route Queries for Device information
-app.get('/air/pm2/:deviceid', function(req, res){
-  console.log("Device Requested: " + req.params.deviceid);
-  db.getDevice(req.params.deviceid, function(err, results){
+// app.get('/air/pm2/:deviceid', function(req, res){
+//   console.log("Device Requested: " + req.params.deviceid);
+//   db.getDevice(req.params.deviceid, function(err, results){
+//     if(err){
+//       console.log(err);
+//     }
+//     else{
+//       console.log("Results returned");
+//       res.send(results);
+//     }
+//   })
+//   //res.send('Querying for Device ID');
+// })
+
+
+
+
+
+
+
+//Display device names
+
+app.get('/air/pm2/device', function(req, res){
+  db.getAllDevices(function(err, results){
     if(err){
       console.log(err);
     }
@@ -53,6 +74,10 @@ app.get('/air/pm2/:deviceid', function(req, res){
   })
   //res.send('Querying for Device ID');
 })
+
+
+
+
 
 // Listen for requests
 app.listen(app.get('port'), function () {
