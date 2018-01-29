@@ -6,6 +6,12 @@ var path = require('path')
 var bodyParser = require('body-parser')
 var app = express()
 
+// Use EJS template engine
+app.set('view engine', 'ejs')
+
+// Set views directory to public
+app.set('views', path.join(__dirname, 'public'))
+
 // Static files (html/css)
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -20,8 +26,41 @@ app.set('port', process.env.PORT || 3000);
 
 // Home Page
 app.get('/', function (req, res) {
- 	res.send('Hello Chris!');
+ 	res.render('html/index');
 })
+
+app.get('/overview', function(req, res){
+	res.render('html/overview')
+})
+
+app.get('/materials', function(req, res){
+	res.render('html/materials')
+})
+
+app.get('/pcbparts', function(req, res){
+	res.render('html/pcbparts')
+})
+
+app.get('/assemblepackages', function(req, res){
+	res.render('html/assemblepackages')
+})
+
+app.get('/appendixa', function(req, res){
+	res.render('html/appendixa')
+})
+
+app.get('/appendixb', function(req, res){
+	res.render('html/appendixb')
+})
+
+app.get('/appendixc', function(req, res){
+	res.render('html/appendixc')
+})
+
+app.get('/appendixd', function(req, res){
+	res.render('html/appendixd')
+})
+
 
 // Route Inserts PM2 Data
 app.post('/air',  function(req, res){

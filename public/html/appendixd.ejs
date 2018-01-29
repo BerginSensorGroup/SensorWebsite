@@ -64,18 +64,17 @@
           <!-- Navigation Tabs at Top of Webpage-->
           <ul class="nav nav-tabs">
             <!-- <ul class="nav navbar-nav"> -->
-            <li><a href="overview.html" onclick="tabClicked()">Overview</a></li>
-            <li><a href="materials.html" onclick="tabClicked()">Materials and Equipment Needed</a></li>
-            <li><a href="pcbparts.html" onclick="tabClicked()">Parts Connected to the PCB</a></li>
-            <li><a href="assemblepackages.html" onclick="tabClicked()">Sensor Packages for Use</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="appendixa.html" onclick="tabClicked()">Appendix A</a></li>
-                <li><a href="appendixb.html" onclick="tabClicked()">Appendix B</a></li>
-                <li><a href="appendixc.html" onclick="tabClicked()">Appendix C</a></li>
-                <li><a href="appendixd.html" onclick="tabClicked()">Appendix D</a></li>
-              </ul>
+              <li><a href="/overview" onclick="tabClicked()">Overview</a></li>
+              <li><a href="/materials" onclick="tabClicked()">Materials and Equipment Needed</a></li>
+              <li><a href="/pcbparts" onclick="tabClicked()">Parts Connected to the PCB</a></li>
+              <li><a href="/assemblepackages" onclick="tabClicked()">Sensor Packages for Use</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/appendixa" onclick="tabClicked()">Appendix A</a></li>
+                  <li><a href="/appendixb" onclick="tabClicked()">Appendix B</a></li>
+                  <li><a href="/appendixc" onclick="tabClicked()">Appendix C</a></li>
+                  <li><a href="/appendixd" onclick="tabClicked()">Appendix D</a></li>              </ul>
             </li>
           </ul>
 
@@ -86,37 +85,30 @@
       <!-- end section -->
 
       <div class="row">
-
         <div class="col-md-9">
-
-          <section id="line1">
+          <section id="line7">
 
             <div class="row">
-              <div class="col-md-12 left-align">
-                <h2 class="dark-text">Materials and Equipment Needed<hr></h2>
-              </div>
+
+              <h4 id="line7_1">Appendix D: Additional Files You May Need</h4>
+
+              <p>The following files should have been provided to you along with this document and/or may be necessary to complete the steps outlined here:</p>
+              <ol>
+                <li><a href="https://github.com/BerginSensorGroup/Gerber-Files/archive/master.zip">Gerber files to send in to PCB manufacturer</a></li>
+                <li>Bill of materials (excel document) to send to PCB manufacturer if ordering PCB with parts soldered on</li>
+                <li><a href="https://github.com/BerginSensorGroup/Teensy-Code-and-Libraries/archive/master.zip">Code to upload to the teensy (a .ino file) and Teensy Libraries (can also be found online)</a></li>
+                <li><a href="https://github.com/BerginSensorGroup/SD-Card-Template-Files/archive/master.zip">Template files to upload to the SD card (CALI.txt, LAB.txt, TEENSY.txt)</a></li>
+                <li><a href="https://github.com/BerginSensorGroup/RCode-Calibrator-Plotter/archive/master.zip">Folders containing the R plotter and calibrator files for running the apps (the code files), and empty named files for housing the versions of the files as the code runs</a></li>
+              </ol>
               <!-- end col -->
             </div>
             <!-- end row -->
-
-            <h4>Requirements</h4>
-            <p>Materials and equipment needed (per sensor, unless otherwise noted)</p>
-            <ol>
-              <li><a href="http://wholesaler.alibaba.com/product-detail/Laser-dust-sensor-module-PM1-0_60235569896.html?spm=a2700.7782932.0.0.f26XJR">Plantower PMS3003 sensor</a> - note that you will want to make sure that the Plantower comes with a green
-                wiring switch board (see photo) otherwise it can be difficult to connect to the PCB; many of the Plantowers being sold online do not come with this piece</li>
-              <img src="images/packages/pm-sensor.png" alt="PM Sensor">
-              <li>Barrel jack-to-USB cord (for power supply) </li>
-              <li>USB-to-wall adaptor if the sensor is going to be plugged in, otherwise it can be powered via battery plugged in using the barrel jack-to-USB cord</li>
-              <li><a href="https://www.arrow.com/en/products/nbf32306/bud-industries">Hard, waterproof case</a></li>
-              <li>The PCB and all of the following parts in the quantities listed (see next page) – these are the parts we had the company solder on, but you could solder them on yourself</li>
-            </ol>
-
-
           </section>
           <!-- end section -->
 
           </section>
           <!-- end section -->
+
         </div>
         <!-- // end .col -->
 
@@ -139,28 +131,6 @@
   <!-- CUSTOM PLUGINS -->
   <script src="js/custom.js"></script>
   <script src="js/main.js"></script>
-
-  <!-- <script>
-    function tabClicked() {
-      localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
-    }
-
-    window.onload = function() {
-      var activeTab = localStorage.getItem('active-tab');
-      // and trigger that tab
-      if (activeTab) {
-        $('[href="' + activeTab + '"]').tab('show');
-      }
-    }
-
-    window.onfocus = function() {
-      var activeTab = localStorage.getItem('active-tab');
-      // and trigger that tab
-      if (activeTab) {
-        $('[href="' + activeTab + '"]').tab('show');
-      }
-    }
-  </script> -->
 
   <script src="js/syntax-highlighter/scripts/shCore.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
