@@ -79,7 +79,6 @@
               </ul>
             </li>
           </ul>
-
         </div>
         <!-- end row -->
 
@@ -94,23 +93,28 @@
 
             <div class="row">
               <div class="col-md-12 left-align">
-                <h2 class="dark-text">Materials and Equipment Needed<hr></h2>
+                <h2 class="dark-text">Hardcase Enclosures<hr></h2>
               </div>
               <!-- end col -->
             </div>
             <!-- end row -->
 
-            <h4>Requirements</h4>
-            <p>Materials and equipment needed (per sensor, unless otherwise noted)</p>
-            <ol>
-              <li><a href="http://wholesaler.alibaba.com/product-detail/Laser-dust-sensor-module-PM1-0_60235569896.html?spm=a2700.7782932.0.0.f26XJR">Plantower PMS3003 sensor</a> - note that you will want to make sure that the Plantower comes with a green
-                wiring switch board (see photo) otherwise it can be difficult to connect to the PCB; many of the Plantowers being sold online do not come with this piece</li>
-              <img src="images/packages/pm-sensor.png" alt="PM Sensor">
-              <li>Barrel jack-to-USB cord (for power supply) </li>
+            <h1>Photos and Diagrams for Setup</h1>
+            <ul>
+              <li>
+                <h3>2-way Alphasense outdoor/indoor package electrical components, wall power</h3>
+                <p>NOTE: O3 and NO2 (Alphasense) sensors should be flush with the edge of the box but not protruding.</p>
+              </li>
+              <img src="images/hardcaseenclosure/2way-alphasense.png" alt="2way-alphasense">
+              <li>3-way Alphasense outdoor/indoor package electrical components, wall power.
+                <p>NOTE: O3, NO2, and NO (Alphasense) sensors should be flush with the edge of the box but not protruding.</p>
+              </li>
+              <img src="images/hardcaseenclosure/3way-alphasense.png" alt="3way-alphasense">
+
               <li>USB-to-wall adaptor if the sensor is going to be plugged in, otherwise it can be powered via battery plugged in using the barrel jack-to-USB cord</li>
               <li><a href="https://www.arrow.com/en/products/nbf32306/bud-industries">Hard, waterproof case</a></li>
               <li>The PCB and all of the following parts in the quantities listed (see next page) – these are the parts we had the company solder on, but you could solder them on yourself</li>
-            </ol>
+            </ul>
 
 
           </section>
@@ -124,8 +128,13 @@
       </div>
       <!-- // end .row -->
 
+      <!-- // end .col -->
+
     </div>
-    <!-- // end container -->
+    <!-- // end .row -->
+
+  </div>
+  <!-- // end container -->
 
   </div>
   <!-- end wrapper -->
@@ -140,6 +149,29 @@
   <!-- CUSTOM PLUGINS -->
   <script src="js/custom.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- <script>
+    function tabClicked() {
+      localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
+    }
+
+    window.onload = function() {
+      var activeTab = localStorage.getItem('active-tab');
+      // and trigger that tab
+      if (activeTab) {
+        $('[href="' + activeTab + '"]').tab('show');
+      }
+    }
+
+    window.onfocus = function() {
+      var activeTab = localStorage.getItem('active-tab');
+      // and trigger that tab
+      if (activeTab) {
+        $('[href="' + activeTab + '"]').tab('show');
+      }
+    }
+  </script> -->
+
   <script src="js/syntax-highlighter/scripts/shCore.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
