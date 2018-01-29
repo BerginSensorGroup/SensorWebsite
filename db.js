@@ -45,7 +45,6 @@ connection.connect();
 exports.getAllDevices = function(callback){
 
   var queryAllDeviceIDS = "SELECT DISTINCT `photon_id` FROM `pm2`"
-  //var queryAllDeviceIDS = "SELECT * FROM `pm2` WHERE `photon_id` = '3f002a000351353530373132'"
 
   connection.query(queryAllDeviceIDS, function(err, results, fields){
     if(err) {
