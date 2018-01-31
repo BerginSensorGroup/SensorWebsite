@@ -7,7 +7,6 @@
 <!--<![endif]-->
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -62,20 +61,7 @@
           <!-- end 12 -->
 
           <!-- Navigation Tabs at Top of Webpage-->
-          <ul class="nav nav-tabs">
-            <!-- <ul class="nav navbar-nav"> -->
-              <li><a href="/overview" onclick="tabClicked()">Overview</a></li>
-              <li><a href="/materials" onclick="tabClicked()">Materials and Equipment Needed</a></li>
-              <li><a href="/pcbparts" onclick="tabClicked()">Parts Connected to the PCB</a></li>
-              <li><a href="/assemblepackages" onclick="tabClicked()">Sensor Packages for Use</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/appendixa" onclick="tabClicked()">Appendix A</a></li>
-                  <li><a href="/appendixb" onclick="tabClicked()">Appendix B</a></li>
-                  <li><a href="/appendixc" onclick="tabClicked()">Appendix C</a></li>
-                  <li><a href="/appendixd" onclick="tabClicked()">Appendix D</a></li>              </ul>
-            </li>
+          <div id="navbar"></div>
           </ul>
 
         </div>
@@ -93,7 +79,9 @@
 
             <div class="row">
               <div class="col-md-12 left-align">
-                <h2 class="dark-text">Steps for Assembling and Preparing Sensor Packages for Use<hr></h2>
+                <h2 class="dark-text">Steps for Assembling and Preparing Sensor Packages for Use
+                  <hr>
+                </h2>
               </div>
               <!-- end col -->
             </div>
@@ -102,17 +90,24 @@
             <h4>A. Board assembly and case preparation</h4>
 
             <ol type="I">
-              <li>Order printed circuit boards. We used Power Design Services, a company based in California, and worked with Huiling Pan (email: huiling.pan@powerdesignservices.com). We provided the PCB design, as well as a bill of materials (includes the
-                part name, quantity, link to the seller) and they created the boards and soldered many of the parts on for us. It took a few weeks for the boards to come in. If you do not order the PCBs with the parts soldered on, you will need to order
-                the parts separately and solder them on yourself. Note that all components are soldered on to the top side of the board except for the Alphasense headers, which are soldered to the bottom side of the board.</li>
-              <li>Using a drill, drill holes in the front of the waterproof case that will house the PCB and sensors. You will need a hole for the PM sensor, a hole for the USB-to-barrel jack cord, a few small holes to increase airflow, and holes for the
-                Alphasense gas sensors if those are to be included.</li>
+              <li>Order printed circuit boards. We used Power Design Services, a company based in California, and worked with
+                Huiling Pan (email: huiling.pan@powerdesignservices.com). We provided the PCB design, as well as a bill of
+                materials (includes the part name, quantity, link to the seller) and they created the boards and soldered
+                many of the parts on for us. It took a few weeks for the boards to come in. If you do not order the PCBs
+                with the parts soldered on, you will need to order the parts separately and solder them on yourself. Note
+                that all components are soldered on to the top side of the board except for the Alphasense headers, which
+                are soldered to the bottom side of the board.</li>
+              <li>Using a drill, drill holes in the front of the waterproof case that will house the PCB and sensors. You will
+                need a hole for the PM sensor, a hole for the USB-to-barrel jack cord, a few small holes to increase airflow,
+                and holes for the Alphasense gas sensors if those are to be included.</li>
 
               <h4>Figure 2: Holes that need to be drilled in the waterproof case</h4>
               <img src="images/packages/case-holes.png" alt="Holes that need to be drilled in the waterproof case">
 
-              <li>Put Velcro on the bottom of the PM sensor, and on the inside of the case where the PM sensor will sit – this ensures that the inlet for the PM sensor aligns with the hole in the case.</li>
-              <li>Plug the Plantower PM sensor into the header on the PCB. The white part on the Plantower wiring switchboard should be facing towards the Teensy.</li>
+              <li>Put Velcro on the bottom of the PM sensor, and on the inside of the case where the PM sensor will sit – this
+                ensures that the inlet for the PM sensor aligns with the hole in the case.</li>
+              <li>Plug the Plantower PM sensor into the header on the PCB. The white part on the Plantower wiring switchboard
+                should be facing towards the Teensy.</li>
 
               <h4>Figure 3: Sensor box with Plantower PM sensor plugged in (circled).</h4>
               <img src="images/packages/sensor-box.png" alt="Sensor box with Plantower PM sensor plugged in">
@@ -121,79 +116,133 @@
             <h4>B. SD Card Programming</h4>
 
             <ol type="I">
-              <li>Label the SD cards so that you can tell which SD card belongs with which sensor package. You can either do this by writing directly on the SD card using permanent marker (I recommend silver for better visibility) or by attaching a tape label
-                to the SD card, as we have done in Figure 3.</li>
+              <li>Label the SD cards so that you can tell which SD card belongs with which sensor package. You can either do
+                this by writing directly on the SD card using permanent marker (I recommend silver for better visibility)
+                or by attaching a tape label to the SD card, as we have done in Figure 3.</li>
               <li>
-                <p>Upload the three files provided to the SD card (“CALI.txt”, “TEENSY.txt” and “LAB.txt”). Open all files. The first line in the “CALI.txt” file contains the box label, formatted as “BoxXX_XX_XX_XX”. You will need to change this box label
-                  so that it reflects the sensors that are being used. After the box label, this file contains the electronic zero voltage and sensitivity constants from the Alphasense company that correspond to the individual Alphasense sensors, formatted
-                  as “BoxNumber WEZeroNO AEZeroNO sensitivityNO WEZeroCO AEZeroCO sensitivityCO WEZeroNO2 AEZeroNO2 sensitivityNO2 WEZeroO3 AEZeroO3 auxNO2O3 sensitivityO3”. These numbers are from the Alphasense calibration data sheets. Here is a sample
-                  “CALI.txt” file:</p>
+                <p>Upload the three files provided to the SD card (“CALI.txt”, “TEENSY.txt” and “LAB.txt”). Open all files.
+                  The first line in the “CALI.txt” file contains the box label, formatted as “BoxXX_XX_XX_XX”. You will need
+                  to change this box label so that it reflects the sensors that are being used. After the box label, this
+                  file contains the electronic zero voltage and sensitivity constants from the Alphasense company that correspond
+                  to the individual Alphasense sensors, formatted as “BoxNumber WEZeroNO AEZeroNO sensitivityNO WEZeroCO
+                  AEZeroCO sensitivityCO WEZeroNO2 AEZeroNO2 sensitivityNO2 WEZeroO3 AEZeroO3 auxNO2O3 sensitivityO3”. These
+                  numbers are from the Alphasense calibration data sheets. Here is a sample “CALI.txt” file:</p>
                 <p>Box01_51_01_00 Box51 300 300 0.500 300 300 0.500 299 303 0.249 375 403 0.323 0.334</p>
-                <p> The box label numbers correspond to the Teensy, Alphasense, PM and CO2 sensors, respectively. When data are recorded to the SD card, this box label will be printed out in the header of the “TEENSY.txt” file. The Teensy number is identical
-                  to the PM number, and should be written on the PM sensor fan. The Alphasense number is the last two digits found on the white tag on the green Alphasense circuit board (Figure 4). If you are not using Alphasense sensors in your package,
-                  you will still need to include an Alphasense number in the box number (you can use “01”). This Alphasense number is used to specify which factory calibrations, included in the “CALI.txt” file, are applied to your raw Alphasense readings.
-                  The CO2 number should be recorded on a piece of tape that you place on the Cozir CO2 sensor. If there is no CO2 sensor present, put “00” as the two-digit number. This labeling of the sensors allows us to keep track of sensor package
+                <p> The box label numbers correspond to the Teensy, Alphasense, PM and CO2 sensors, respectively. When data are
+                  recorded to the SD card, this box label will be printed out in the header of the “TEENSY.txt” file. The
+                  Teensy number is identical to the PM number, and should be written on the PM sensor fan. The Alphasense
+                  number is the last two digits found on the white tag on the green Alphasense circuit board (Figure 4).
+                  If you are not using Alphasense sensors in your package, you will still need to include an Alphasense number
+                  in the box number (you can use “01”). This Alphasense number is used to specify which factory calibrations,
+                  included in the “CALI.txt” file, are applied to your raw Alphasense readings. The CO2 number should be
+                  recorded on a piece of tape that you place on the Cozir CO2 sensor. If there is no CO2 sensor present,
+                  put “00” as the two-digit number. This labeling of the sensors allows us to keep track of sensor package
                   components that are causing problems, and to make sure any appropriate calibrations are applied.</p>
 
-                <h4>Figure 4:  The box label for this sensor would read "Box16_42_16_00”</h4>
+                <h4>Figure 4: The box label for this sensor would read "Box16_42_16_00”</h4>
                 <img src="images/packages/sd-card-programming.png" alt="Figure 4:  The box label for this sensor would read Box16_42_16_00">
 
-                <p>The “LAB.txt” file contains calibration constants calculated in the lab for the sensors. For example, if you run a chamber test and estimate a slope and intercept by comparing your sensor data to a Dustrak or other reference sensor, you
-                  can include the calibration constants for that relationship here. Here is a sample “LAB.txt” file:</p>
-                <p>NO 1 0 <br>NO2 1 0 <br>O3 1 0 <br>CO2 1 0 <br>TPM25 1 0 <br>PM25 1 0</p>
-                <p>Each row is formatted as “Sensor m b” where m is the first order coefficient and b is the zeroth order coefficient. If you have not calibrated your sensors, leave these values as “1 0”, as shown above. </p>
-                <p>NOTE: If both “CALI.txt” and “LAB.txt” files are not on the SD card, the sensor will not run and log data. If there is no Plantower sensor connected to your PCB, the package will not log data. However, if there are no gas sensors (Alphasense
-                  and/or CO2), plugged in the package will continue to log data, although the values in the gas pollutant data columns are nonsensical and should be ignored. </p>
+                <p>The “LAB.txt” file contains calibration constants calculated in the lab for the sensors. For example, if
+                  you run a chamber test and estimate a slope and intercept by comparing your sensor data to a Dustrak or
+                  other reference sensor, you can include the calibration constants for that relationship here. Here is a
+                  sample “LAB.txt” file:</p>
+                <p>NO 1 0
+                  <br>NO2 1 0
+                  <br>O3 1 0
+                  <br>CO2 1 0
+                  <br>TPM25 1 0
+                  <br>PM25 1 0</p>
+                <p>Each row is formatted as “Sensor m b” where m is the first order coefficient and b is the zeroth order coefficient.
+                  If you have not calibrated your sensors, leave these values as “1 0”, as shown above. </p>
+                <p>NOTE: If both “CALI.txt” and “LAB.txt” files are not on the SD card, the sensor will not run and log data.
+                  If there is no Plantower sensor connected to your PCB, the package will not log data. However, if there
+                  are no gas sensors (Alphasense and/or CO2), plugged in the package will continue to log data, although
+                  the values in the gas pollutant data columns are nonsensical and should be ignored. </p>
               </li>
               <li>
                 <p>Once all three files are on the SD card, put the SD card back in the SD card reader in the sensor package.</p>
-                <p>The “TEENSY.txt” file contains all of the data that have been logged to the SD card. All data are recorded in one file. Each time the teensy is powered on again (either by plugging the teensy itself in, or by connecting the package to
-                  power using the barrel jack) a new header will be printed to the file. Following the header, minute-averaged (or whatever time frame you have specified in the teensy code) data will be recorded. The newest data are always added to the
-                  bottom of the file. </p>
+                <p>The “TEENSY.txt” file contains all of the data that have been logged to the SD card. All data are recorded
+                  in one file. Each time the teensy is powered on again (either by plugging the teensy itself in, or by connecting
+                  the package to power using the barrel jack) a new header will be printed to the file. Following the header,
+                  minute-averaged (or whatever time frame you have specified in the teensy code) data will be recorded. The
+                  newest data are always added to the bottom of the file. </p>
                 <p>This is a sample header:</p>
-                <p>Box01_34_01_04<br>...New Logging Session...2016/7/11, 16:0:7, </p>
+                <p>Box01_34_01_04
+                  <br>...New Logging Session...2016/7/11, 16:0:7, </p>
                 <p>The next line in the text file labels all of the columns. This is a list of the columns: </p>
-                <p>yyyy/mm/dd, hh:mm:ss, timeElapsed, TPM1, TPM2.5, TPM10, PM1, PM2.5, PM10, CO2, TempC, Humidity, NO, NO2, O3, CO2raw, workNO2, auxNO2, workO3, auxO3, labNO, labNO2, labO3, labCO2, labTPM25, labPM25</p>
-                <p>The columns “yyyy/mm/dd” and “hh:mm:ss” hold the time stamps of the sensors, while “timeElapsed” represents the time elapsed from the beginning of the logging session in seconds. Each column with a pollutant name contains the readings
-                  of that corresponding pollutant. The difference between the “TPM” and “PM” columns is that the “TPM” is PM values calibrated using TSI reference while the “PM” is PM values calibrated using atmospheric reference. The “work” and “aux”
-                  values are readings from their corresponding Alphasense work and auxiliary pins, respectively. These values are used together to calculate the pollutant concentrations. The “lab” values are values calibrated using the calibration constants
-                  obtained in lab. Every minute, averages of the data are written in a row to the SD card. This is a sample row of data:</p>
-                <p>2016/7/11, 16:1:9, 64, 11, 16, 17, 11, 16, 17, 623.84, 23.82, 62.25, 29.13, 26.64, 34.13, 319.09, 92.55, 89.23, 132.26, 124.64, 29.13, 26.64, 34.13, 623.84, 16.00, 16.00</p>
+                <p>yyyy/mm/dd, hh:mm:ss, timeElapsed, TPM1, TPM2.5, TPM10, PM1, PM2.5, PM10, CO2, TempC, Humidity, NO, NO2,
+                  O3, CO2raw, workNO2, auxNO2, workO3, auxO3, labNO, labNO2, labO3, labCO2, labTPM25, labPM25</p>
+                <p>The columns “yyyy/mm/dd” and “hh:mm:ss” hold the time stamps of the sensors, while “timeElapsed” represents
+                  the time elapsed from the beginning of the logging session in seconds. Each column with a pollutant name
+                  contains the readings of that corresponding pollutant. The difference between the “TPM” and “PM” columns
+                  is that the “TPM” is PM values calibrated using TSI reference while the “PM” is PM values calibrated using
+                  atmospheric reference. The “work” and “aux” values are readings from their corresponding Alphasense work
+                  and auxiliary pins, respectively. These values are used together to calculate the pollutant concentrations.
+                  The “lab” values are values calibrated using the calibration constants obtained in lab. Every minute, averages
+                  of the data are written in a row to the SD card. This is a sample row of data:</p>
+                <p>2016/7/11, 16:1:9, 64, 11, 16, 17, 11, 16, 17, 623.84, 23.82, 62.25, 29.13, 26.64, 34.13, 319.09, 92.55,
+                  89.23, 132.26, 124.64, 29.13, 26.64, 34.13, 623.84, 16.00, 16.00</p>
               </li>
             </ol>
 
             <h4>C. Teensy programming</h4>
             <ol type="I">
-              <li>If you do not already have Arduino/Teensyduino and the necessary libraries on your computer, see Appendix A (for Macs) or Appendix B (for PCs) for installation instructions. I use Arduino version 1.6.8, which is not the current version of
-                Arduino but it works with the code. As our packages use Teensy, you will also need to install Teensyduino - note that with Arduino version 1.6.8, you will need to use Teensy version 1.28. </li>
-              <li>Connect the teensy on the PCB to your computer using the microUSB port on the teensy. In Arduino, click “Tools”, and set the board type to Teensy 3.2 / 3.1.</li>
-              <li>Open the Blaze air sensor code that you will be using. In the code, find the line RTC.adjust(DateTime(__DATE__, __TIME__)); If this line is commented out (using “//”), remove the back slashes. Upload the code to the teensy. The teensy will
-                use whatever time your computer is running on currently to set the clock – if you would like to program the package for use in another time zone, you will need to first set your computer clock time to that time zone.</li>
-              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload the code.</li>
-              <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You should be able to see the data being read in real-time. As the data appear, check if the date and time are correct. This also allows
-                you to get a sense of whether the data look reasonable. Note that data will appear every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card must be programmed prior to running the code,
-                otherwise the sensor will not log data. Every time you plug the sensor package in the LED will flicker red on start-up and then remain solid, as it starts to record data. Every time (e.g., every minute) data are recorded to the SD card
-                the LED should flicker again.</li>
+              <li>If you do not already have Arduino/Teensyduino and the necessary libraries on your computer, see Appendix A
+                (for Macs) or Appendix B (for PCs) for installation instructions. I use Arduino version 1.6.8, which is not
+                the current version of Arduino but it works with the code. As our packages use Teensy, you will also need
+                to install Teensyduino - note that with Arduino version 1.6.8, you will need to use Teensy version 1.28.
+                </li>
+              <li>Connect the teensy on the PCB to your computer using the microUSB port on the teensy. In Arduino, click “Tools”,
+                and set the board type to Teensy 3.2 / 3.1.</li>
+              <li>Open the Blaze air sensor code that you will be using. In the code, find the line RTC.adjust(DateTime(__DATE__,
+                __TIME__)); If this line is commented out (using “//”), remove the back slashes. Upload the code to the teensy.
+                The teensy will use whatever time your computer is running on currently to set the clock – if you would like
+                to program the package for use in another time zone, you will need to first set your computer clock time
+                to that time zone.</li>
+              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload
+                the code.</li>
+              <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You
+                should be able to see the data being read in real-time. As the data appear, check if the date and time are
+                correct. This also allows you to get a sense of whether the data look reasonable. Note that data will appear
+                every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card
+                must be programmed prior to running the code, otherwise the sensor will not log data. Every time you plug
+                the sensor package in the LED will flicker red on start-up and then remain solid, as it starts to record
+                data. Every time (e.g., every minute) data are recorded to the SD card the LED should flicker again.</li>
             </ol>
 
             <h4>D. Sensor Testing</h4>
             <ol type="I">
-              <li>Once you think you have the sensors working, you should test them over an extended period of time. Co-locate your sensors (close to a reference instrument if available), and let them run for a few hours, or longer. Make sure that when you
-                lug them in the red LED flashes and then remains on, but blinks every minute, indicating that data are being logged. If LED is flashing, ensure the SD card is properly inserted and try disconnecting the power source (wall or battery) and
-                then reconnecting.</li>
-              <li>Download the data. Remove the SD card from the package and download the files to your computer. Do not delete the files on the SD card. Replace the SD card and restart the teensy by disconnecting and reconnecting power. NOTE: Each SD card
-                belongs with a specific sensor please make sure the number on the SD card matches the box number. You can also find the box number by opening the files on the SD card.</li>
-              <li>Check the data to make sure all values seem appropriate, and that the time and date are correct. You can quickly glance at the data in the “TEENSY.txt” file, but a better way to identify problems is to plot the data (e.g., using the Plotter
-                app in Rstudio). If you look at the instantaneous values being reported by the Arduino serial monitor there will be noise and values will be inconsistent. This may be true with some of the 1-minute average values recorded as well especially
-                for the Alphasense gas phase sensors (O3, NO, NO2). PM2.5 indoors in the US is often below 10 µg m-3. Outdoors in India it can be up to a few hundred µg m-3. CO2 is about 400ppm globally but can be much higher near sources of combustion
-                and especially in closed rooms since people exhale high concentrations of CO2. The COZIR sensor we use measures up to a maximum of 2000ppm. There is still some uncertainty with the values reported by the O3, NO, and NO2 sensors so values
-                cannot yet be compared with ambient concentrations. You can visualize the data from the teensy file using the R application to plot PM (or other pollutants), and temperature and humidity. If collocated, we expect minimal variation in the
-                data recorded by the sensors. To quickly view the data from multiple sensors simultaneously, use the “Plotter” app in RStudio. If you do not yet have R and Shiny installed on your computer, see Appendix C.</li>
-              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload the code.</li>
-              <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You should be able to see the data being read in real-time. As the data appear, check if the date and time are correct. This also allows
-                you to get a sense of whether the data look reasonable. Note that data will appear every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card must be programmed prior to running the code,
-                otherwise the sensor will not log data. Every time you plug the sensor package in the LED will flicker red on start-up and then remain solid, as it starts to record data. Every time (e.g., every minute) data are recorded to the SD card
-                the LED should flicker again.</li>
+              <li>Once you think you have the sensors working, you should test them over an extended period of time. Co-locate
+                your sensors (close to a reference instrument if available), and let them run for a few hours, or longer.
+                Make sure that when you lug them in the red LED flashes and then remains on, but blinks every minute, indicating
+                that data are being logged. If LED is flashing, ensure the SD card is properly inserted and try disconnecting
+                the power source (wall or battery) and then reconnecting.</li>
+              <li>Download the data. Remove the SD card from the package and download the files to your computer. Do not delete
+                the files on the SD card. Replace the SD card and restart the teensy by disconnecting and reconnecting power.
+                NOTE: Each SD card belongs with a specific sensor please make sure the number on the SD card matches the
+                box number. You can also find the box number by opening the files on the SD card.</li>
+              <li>Check the data to make sure all values seem appropriate, and that the time and date are correct. You can quickly
+                glance at the data in the “TEENSY.txt” file, but a better way to identify problems is to plot the data (e.g.,
+                using the Plotter app in Rstudio). If you look at the instantaneous values being reported by the Arduino
+                serial monitor there will be noise and values will be inconsistent. This may be true with some of the 1-minute
+                average values recorded as well especially for the Alphasense gas phase sensors (O3, NO, NO2). PM2.5 indoors
+                in the US is often below 10 µg m-3. Outdoors in India it can be up to a few hundred µg m-3. CO2 is about
+                400ppm globally but can be much higher near sources of combustion and especially in closed rooms since people
+                exhale high concentrations of CO2. The COZIR sensor we use measures up to a maximum of 2000ppm. There is
+                still some uncertainty with the values reported by the O3, NO, and NO2 sensors so values cannot yet be compared
+                with ambient concentrations. You can visualize the data from the teensy file using the R application to plot
+                PM (or other pollutants), and temperature and humidity. If collocated, we expect minimal variation in the
+                data recorded by the sensors. To quickly view the data from multiple sensors simultaneously, use the “Plotter”
+                app in RStudio. If you do not yet have R and Shiny installed on your computer, see Appendix C.</li>
+              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload
+                the code.</li>
+              <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You
+                should be able to see the data being read in real-time. As the data appear, check if the date and time are
+                correct. This also allows you to get a sense of whether the data look reasonable. Note that data will appear
+                every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card
+                must be programmed prior to running the code, otherwise the sensor will not log data. Every time you plug
+                the sensor package in the LED will flicker red on start-up and then remain solid, as it starts to record
+                data. Every time (e.g., every minute) data are recorded to the SD card the LED should flicker again.</li>
             </ol>
 
             <h4>Using the Plotter App</h4>
@@ -201,12 +250,15 @@
               <li>Open "Plotter" folder</li>
               <img src="images/plotter/open-plotter.png" alt="Open Plotter folder">
 
-              <li>Download the data. Remove the SD card from the package and download the files to your computer. Do not delete the files on the SD card. Replace the SD card and restart the teensy by disconnecting and reconnecting power. NOTE: Each SD card
-                belongs with a specific sensor please make sure the number on the SD card matches the box number. You can also find the box number by opening the files on the SD card.</li>
+              <li>Download the data. Remove the SD card from the package and download the files to your computer. Do not delete
+                the files on the SD card. Replace the SD card and restart the teensy by disconnecting and reconnecting power.
+                NOTE: Each SD card belongs with a specific sensor please make sure the number on the SD card matches the
+                box number. You can also find the box number by opening the files on the SD card.</li>
               <img src="images/plotter/working-directory.png" alt="Set as working directory">
 
-              <li>In the folder “Raw Data”, place the folder whose files are to be calibrated. This folder should be named based on the site location and date data was collected for example: “Indoor_home4_boxID000000_07312016” In the example below, the user
-                created folder “061716” to hold the sensor file(s).
+              <li>In the folder “Raw Data”, place the folder whose files are to be calibrated. This folder should be named based
+                on the site location and date data was collected for example: “Indoor_home4_boxID000000_07312016” In the
+                example below, the user created folder “061716” to hold the sensor file(s).
               </li>
               <img src="images/plotter/raw-data.png" alt="files to be calibrated">
 
@@ -219,7 +271,9 @@
               <li>Click “run app” button at the top of the browser.</li>
               <img src="images/plotter/run-app.png" alt="run app">
 
-              <li>The app interface should look similar to the following: From here you can visualize different pollutants from different packages. Use the top slider bar to select your desired time period. The bottom plot shows temperature and RH for comparison.</li>
+              <li>The app interface should look similar to the following: From here you can visualize different pollutants from
+                different packages. Use the top slider bar to select your desired time period. The bottom plot shows temperature
+                and RH for comparison.</li>
               <img src="images/plotter/app-interface.png" alt="app interface">
             </ol>
 
@@ -231,8 +285,9 @@
               <li>Set this as the working directory.</li>
               <img src="images/calibrator/working-directory.png" alt="Set as working directory">
 
-              <li>In the folder “Raw Data”, place the folder whose files are to be calibrated. Make sure every file is in the folder, including the file that will be used as the reference. In the example below, the user created folder “060116” to hold the
-                sensor files.</li>
+              <li>In the folder “Raw Data”, place the folder whose files are to be calibrated. Make sure every file is in the
+                folder, including the file that will be used as the reference. In the example below, the user created folder
+                “060116” to hold the sensor files.</li>
 
               <!-- MISSING PHOTO   -->
               <!-- <img src="images/calibrator/raw-data.png" alt="files to be calibrated"> -->
@@ -244,7 +299,8 @@
               </li>
               <img src="images/calibrator/edit-folder.png" alt="edit calibrator folder name">
 
-              <li>Click “Run App” button at the top of the browser. The csv file with the calibration constants will be placed in “Data>Calibration Constants”.</li>
+              <li>Click “Run App” button at the top of the browser. The csv file with the calibration constants will be placed
+                in “Data>Calibration Constants”.</li>
               <img src="images/calibrator/run-app.png" alt="run app">
 
               <li>The app interface should look similar to the following:</li>
@@ -272,6 +328,11 @@
   <!-- end wrapper -->
 
   <script src="js/jquery.min.js"></script>
+  <script> 
+    $(function () {
+      $("#navbar").load("html/navbar.ejs");
+    });
+  </script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/retina.js"></script>
   <script src="js/jquery.fitvids.js"></script>

@@ -37,20 +37,53 @@ app.get('/materials', function (req, res) {
 	res.render('html/materials')
 })
 
+app.get('/hardcaseenclosure', function(req,res){
+	res.render('html/hardcaseenclosure')
+})
+
+app.get('/professionalenclosure', function(req, res){
+	res.render('html/professionalenclosure')
+})
+
 app.get('/pcbparts', function (req, res) {
 	res.render('html/pcbparts')
+})
+
+app.get('/fielddeployment',function(req,res){
+	res.render('html/fielddeployment')
+})
+
+app.get('/sensortesting', function(req,res){
+	res.render('html/sensortesting')
+})
+
+app.get('/datavisualization', function(req,res){
+	res.render('html/datavisualization')
+})
+
+app.get('/teensysoftware', function(req,res){
+	res.render('html/teensysoftware')
 })
 
 app.get('/assemblepackages', function (req, res) {
 	res.render('html/assemblepackages')
 })
 
-// app.get('/chart', function (req, res) {
-// 	var datapoints = [1, 2, 3, 4]
-// 	res.render('html/chart', {
-// 		datapoints: datapoints
-// 	})
-// })
+app.get('/appendixa', function(req,res){
+	res.render('html/appendixa')
+})
+
+app.get('/appendixb', function(req,res){
+	res.render('html/appendixb')
+})
+
+app.get('/appendixc', function(req,res){
+	res.render('html/appendixc')
+})
+
+app.get('appendixd', function(req,res){
+	res.render('html/appendixd')
+})
 
 app.get('/chart/:deviceid', function (req, res) {
 	console.log("Device Requested: " + req.params.deviceid);
@@ -101,23 +134,6 @@ app.get('/chart/:deviceid', function (req, res) {
 		}
 	})
 })
-
-app.get('/appendixa', function (req, res) {
-	res.render('html/appendixa')
-})
-
-app.get('/appendixb', function (req, res) {
-	res.render('html/appendixb')
-})
-
-app.get('/appendixc', function (req, res) {
-	res.render('html/appendixc')
-})
-
-app.get('/appendixd', function (req, res) {
-	res.render('html/appendixd')
-})
-
 
 // Route Inserts PM2 Data
 app.post('/air', function (req, res) {

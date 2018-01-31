@@ -61,7 +61,6 @@
           </div>
           <!-- end 12 -->
 
-          <!-- Navigation Tabs at Top of Webpage-->
           <div id="navbar"></div>
         </div>
         <!-- end row -->
@@ -141,48 +140,49 @@
   </div>
   <!-- end wrapper -->
 
+  <script src="js/jquery.min.js"></script>
+  <script> 
+    $(function () {
+      $("#navbar").load("html/navbar.ejs");
+    });
+  </script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/retina.js"></script>
+  <script src="js/jquery.fitvids.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/jquery.prettyPhoto.js"></script>
+
+  <!-- CUSTOM PLUGINS -->
+  <script src="js/custom.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- <script>
+    function tabClicked() {
+      localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
+    }
+
+    window.onload = function() {
+      var activeTab = localStorage.getItem('active-tab');
+      // and trigger that tab
+      if (activeTab) {
+        $('[href="' + activeTab + '"]').tab('show');
+      }
+    }
+
+    window.onfocus = function() {
+      var activeTab = localStorage.getItem('active-tab');
+      // and trigger that tab
+      if (activeTab) {
+        $('[href="' + activeTab + '"]').tab('show');
+      }
+    }
+  </script> -->
+
+  <script src="js/syntax-highlighter/scripts/shCore.js"></script>
+  <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
+  <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
+  <script src="js/syntax-highlighter/scripts/shBrushJScript.js"></script>
+
 </body>
-<script src="js/jquery.min.js"></script>
-<script> 
-  $(function () {
-    $("#navbar").load("html/navbar.ejs");
-  });
-</script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/retina.js"></script>
-<script src="js/jquery.fitvids.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-
-<!-- CUSTOM PLUGINS -->
-<script src="js/custom.js"></script>
-<script src="js/main.js"></script>
-
-<!-- <script>
-  function tabClicked() {
-    localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
-  }
-
-  window.onload = function() {
-    var activeTab = localStorage.getItem('active-tab');
-    // and trigger that tab
-    if (activeTab) {
-      $('[href="' + activeTab + '"]').tab('show');
-    }
-  }
-
-  window.onfocus = function() {
-    var activeTab = localStorage.getItem('active-tab');
-    // and trigger that tab
-    if (activeTab) {
-      $('[href="' + activeTab + '"]').tab('show');
-    }
-  }
-</script> -->
-
-<script src="js/syntax-highlighter/scripts/shCore.js"></script>
-<script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
-<script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
-<script src="js/syntax-highlighter/scripts/shBrushJScript.js"></script>
 
 </html>

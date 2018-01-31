@@ -62,22 +62,7 @@
           <!-- end 12 -->
 
           <!-- Navigation Tabs at Top of Webpage-->
-          <ul class="nav nav-tabs">
-            <!-- <ul class="nav navbar-nav"> -->
-              <li><a href="/overview" onclick="tabClicked()">Overview</a></li>
-              <li><a href="/materials" onclick="tabClicked()">Materials and Equipment Needed</a></li>
-              <li><a href="/pcbparts" onclick="tabClicked()">Parts Connected to the PCB</a></li>
-              <li><a href="/assemblepackages" onclick="tabClicked()">Sensor Packages for Use</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/appendixa" onclick="tabClicked()">Appendix A</a></li>
-                  <li><a href="/appendixb" onclick="tabClicked()">Appendix B</a></li>
-                  <li><a href="/appendixc" onclick="tabClicked()">Appendix C</a></li>
-                  <li><a href="/appendixd" onclick="tabClicked()">Appendix D</a></li>              </ul>
-            </li>
-          </ul>
-
+          <div id="navbar"></div>
         </div>
         <!-- end row -->
 
@@ -131,6 +116,11 @@
   <!-- end wrapper -->
 
   <script src="js/jquery.min.js"></script>
+  <script> 
+    $(function () {
+      $("#navbar").load("html/navbar.ejs");
+    });
+  </script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/retina.js"></script>
   <script src="js/jquery.fitvids.js"></script>

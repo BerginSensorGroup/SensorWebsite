@@ -27,15 +27,24 @@
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
 
 	<!-- CUSTOM -->
-	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="../css/custom.css">
 	
 	<meta charset="UTF-8">
 	<title>Data - Bergin Lab</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- <link rel="stylesheet" href="../assets/css/main.css" /> -->
+
+	<!-- Scripts -->
+	<script src="../js/jquery.min.js"></script>
+	<script> 
+		$(function () {
+		  $("#navbar").load("../html/navbar.ejs");
+		});
+	  </script>
+	<script src="../js/canvasjs.min.js"></script>
 	<script>
-		window.onload = function () {
+		$(document).ready(function () {
 
 			var chart = new CanvasJS.Chart("chartContainer", {
 				animationEnabled: true,
@@ -61,7 +70,7 @@
 			});
 			chart.render();
 
-		}
+		});
 
 		var limit = 1000;
 
@@ -75,10 +84,7 @@
 			data.push(dataSeries)
 		}
 	</script>
-	<script src="../js/canvasjs.min.js"></script>
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/retina.js"></script>
 	<script src="../js/jquery.fitvids.js"></script>
 	<script src="../js/wow.js"></script>
@@ -112,40 +118,7 @@
 					<!-- end 12 -->
 
 					<!-- Navigation Tabs at Top of Webpage-->
-					<ul class="nav nav-tabs">
-						<!-- <ul class="nav navbar-nav"> -->
-						<li>
-							<a href="/overview" onclick="tabClicked()">Overview</a>
-						</li>
-						<li>
-							<a href="/materials" onclick="tabClicked()">Materials and Equipment Needed</a>
-						</li>
-						<li>
-							<a href="/pcbparts" onclick="tabClicked()">Parts Connected to the PCB</a>
-						</li>
-						<li>
-							<a href="/assemblepackages" onclick="tabClicked()">Sensor Packages for Use</a>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="/appendixa" onclick="tabClicked()">Appendix A</a>
-								</li>
-								<li>
-									<a href="/appendixb" onclick="tabClicked()">Appendix B</a>
-								</li>
-								<li>
-									<a href="/appendixc" onclick="tabClicked()">Appendix C</a>
-								</li>
-								<li>
-									<a href="/appendixd" onclick="tabClicked()">Appendix D</a>
-								</li>
-							</ul>
-						</li>
-						<div include="#includedContent"></div>
+					<div id="navbar"></div>
 					</ul>
 				</div>
 

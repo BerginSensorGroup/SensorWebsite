@@ -7,7 +7,6 @@
 <!--<![endif]-->
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -40,7 +39,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
@@ -61,23 +59,7 @@
           </div>
           <!-- end 12 -->
 
-          <!-- Navigation Tabs at Top of Webpage-->
-          <ul class="nav nav-tabs">
-            <!-- <ul class="nav navbar-nav"> -->
-              <li><a href="/overview" onclick="tabClicked()">Overview</a></li>
-              <li><a href="/materials" onclick="tabClicked()">Materials and Equipment Needed</a></li>
-              <li><a href="/pcbparts" onclick="tabClicked()">Parts Connected to the PCB</a></li>
-              <li><a href="/assemblepackages" onclick="tabClicked()">Sensor Packages for Use</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="tabClicked()">Appendices<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/appendixa" onclick="tabClicked()">Appendix A</a></li>
-                  <li><a href="/appendixb" onclick="tabClicked()">Appendix B</a></li>
-                  <li><a href="/appendixc" onclick="tabClicked()">Appendix C</a></li>
-                  <li><a href="/appendixd" onclick="tabClicked()">Appendix D</a></li>            </ul>
-            </li>
-          </ul>
-
+          <div id="navbar"></div>
         </div>
         <!-- end row -->
 
@@ -92,7 +74,9 @@
 
             <div class="row">
               <div class="col-md-12 left-align">
-                <h2 class="dark-text">Parts Connected to the PCB<hr></h2>
+                <h2 class="dark-text">Parts Connected to the PCB
+                  <hr>
+                </h2>
               </div>
               <!-- end col -->
             </div>
@@ -117,7 +101,9 @@
                   <td>NALE header 2.00 mm</td>
                   <td>1/15</td>
                   <td>Alphasense</td>
-                  <td><a href="https://www.adafruit.com/product/2671">Link</a></td>
+                  <td>
+                    <a href="https://www.adafruit.com/product/2671">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>Amazon</td>
@@ -125,7 +111,9 @@
                   <td>Diode</td>
                   <td>1</td>
                   <td>D1</td>
-                  <td><a href="https://www.amazon.com/uxcell-Solderable-Schottky-Rectifier-Diodes/dp/B00TGQE9C4/ref=sr_1_1?ie=UTF8&qid=1475376774&sr=8-1&keywords=schottky+diode">Link</a></td>
+                  <td>
+                    <a href="https://www.amazon.com/uxcell-Solderable-Schottky-Rectifier-Diodes/dp/B00TGQE9C4/ref=sr_1_1?ie=UTF8&qid=1475376774&sr=8-1&keywords=schottky+diode">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>macetech</td>
@@ -133,7 +121,9 @@
                   <td>Chronodor RTC</td>
                   <td>1</td>
                   <td>Clock</td>
-                  <td><a href="http://macetech.com/store/index.php?main_page=product_info&products_id=8">Link</a></td>
+                  <td>
+                    <a href="http://macetech.com/store/index.php?main_page=product_info&products_id=8">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>MDFLY</td>
@@ -141,7 +131,9 @@
                   <td>Teensy female header</td>
                   <td>1/5</td>
                   <td>2 13-pin sockets moutned on TEENSY slot on PCB</td>
-                  <td><a href="http://www.mdfly.com/products/13-pin-2-54mm-0-1-female-header-black-pack-of-10.html">Link</a></td>
+                  <td>
+                    <a href="http://www.mdfly.com/products/13-pin-2-54mm-0-1-female-header-black-pack-of-10.html">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>PJRC</td>
@@ -149,7 +141,9 @@
                   <td>Teensy 3.2</td>
                   <td>1</td>
                   <td>Plugs into female headers</td>
-                  <td><a href="https://www.pjrc.com/store/teensy32.html">Link</a></td>
+                  <td>
+                    <a href="https://www.pjrc.com/store/teensy32.html">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>PJRC</td>
@@ -157,7 +151,9 @@
                   <td>sd card adapter</td>
                   <td>1</td>
                   <td>plugs into headers on SD1, SD2</td>
-                  <td><a href="https://www.pjrc.com/store/sd_adaptor.html">Link</a></td>
+                  <td>
+                    <a href="https://www.pjrc.com/store/sd_adaptor.html">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>pololu</td>
@@ -165,7 +161,9 @@
                   <td>Teensy female header</td>
                   <td>1</td>
                   <td>7-pin socket mounted on TEENSY slot on PCB</td>
-                  <td><a href="https://www.pololu.com/product/1017">Link</a></td>
+                  <td>
+                    <a href="https://www.pololu.com/product/1017">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>pololu</td>
@@ -173,7 +171,9 @@
                   <td>SD Card Headers</td>
                   <td>2</td>
                   <td>SD1, SD2</td>
-                  <td><a href="https://www.pololu.com/product/1015">Link</a></td>
+                  <td>
+                    <a href="https://www.pololu.com/product/1015">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>pololu</td>
@@ -181,7 +181,9 @@
                   <td>Voltage regulator</td>
                   <td>1</td>
                   <td>Regulator</td>
-                  <td><a href="https://www.pololu.com/product/2119/specs">Link</a></td>
+                  <td>
+                    <a href="https://www.pololu.com/product/2119/specs">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>pololu</td>
@@ -189,7 +191,9 @@
                   <td>CO2 header</td>
                   <td>1</td>
                   <td>2x5 Pin Female Header</td>
-                  <td><a href="https://www.pololu.com/product/1025">Link</a></td>
+                  <td>
+                    <a href="https://www.pololu.com/product/1025">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>pololu</td>
@@ -197,7 +201,9 @@
                   <td>PM2.5 header</td>
                   <td>1</td>
                   <td>1x8 Pin Female Header</td>
-                  <td><a href="https://www.pololu.com/product/1018">Link</a></td>
+                  <td>
+                    <a href="https://www.pololu.com/product/1018">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>sparkfun</td>
@@ -205,7 +211,9 @@
                   <td>Barrel Jack</td>
                   <td>1</td>
                   <td></td>
-                  <td><a href="https://www.sparkfun.com/products/10811">Link</a></td>
+                  <td>
+                    <a href="https://www.sparkfun.com/products/10811">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>sparkfun</td>
@@ -213,7 +221,9 @@
                   <td>LED</td>
                   <td>1</td>
                   <td>LED</td>
-                  <td><a href="https://www.sparkfun.com/products/9590">Link</a></td>
+                  <td>
+                    <a href="https://www.sparkfun.com/products/9590">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>sparkfun</td>
@@ -221,7 +231,9 @@
                   <td>Male header</td>
                   <td>2</td>
                   <td>Teensy, SD Card Adapter</td>
-                  <td><a href="https://www.sparkfun.com/products/116">Link</a></td>
+                  <td>
+                    <a href="https://www.sparkfun.com/products/116">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>sparkfun</td>
@@ -229,7 +241,9 @@
                   <td>100K resistor</td>
                   <td>1</td>
                   <td>100K</td>
-                  <td><a href="https://www.sparkfun.com/products/13761">Link</a></td>
+                  <td>
+                    <a href="https://www.sparkfun.com/products/13761">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>sparkfun</td>
@@ -237,7 +251,9 @@
                   <td>10K resistor</td>
                   <td>3</td>
                   <td>LEDR, 10k, 10k</td>
-                  <td><a href="https://www.sparkfun.com/products/11508">Link</a></td>
+                  <td>
+                    <a href="https://www.sparkfun.com/products/11508">Link</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>sparkfun</td>
@@ -245,51 +261,60 @@
                   <td>Temperature/Humidity Sensor</td>
                   <td>1</td>
                   <td>Temp/Humid</td>
-                  <td><a href="https://www.sparkfun.com/products/13683">Link</a></td>
+                  <td>
+                    <a href="https://www.sparkfun.com/products/13683">Link</a>
+                  </td>
                 </tr>
               </tbody>
             </table>
 
-            <h4>PCB with parts soldered on: Top Side<h4>
-            <img id="pcb-parts-top" src="images/pcbparts/PCB-Parts-Top.png" alt="Top view of PCB with parts soldered on">
-            <h4>PCB with parts soldered on: Bottom Side<h4>
-            <img id="pcb-parts-bottom" src="images/pcbparts/PCB-Parts-Bottom.png" alt="Bottom view of PCB with parts soldered on">
+            <h4>PCB with parts soldered on: Top Side
+              <h4>
+                <img id="pcb-parts-top" src="images/pcbparts/PCB-Parts-Top.png" alt="Top view of PCB with parts soldered on">
+                <h4>PCB with parts soldered on: Bottom Side
+                  <h4>
+                    <img id="pcb-parts-bottom" src="images/pcbparts/PCB-Parts-Bottom.png" alt="Bottom view of PCB with parts soldered on">
 
           </section>
           <!-- end section -->
 
-      <!-- end section -->
+          <!-- end section -->
 
-      </section>
-      <!-- end section -->
+          </section>
+          <!-- end section -->
+        </div>
+        <!-- // end .col -->
+
+      </div>
+      <!-- // end .row -->
+
     </div>
-    <!-- // end .col -->
-
-  </div>
-  <!-- // end .row -->
-
-  </div>
-  <!-- // end container -->
+    <!-- // end container -->
 
   </div>
   <!-- end wrapper -->
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/retina.js"></script>
-  <script src="js/jquery.fitvids.js"></script>
-  <script src="js/wow.js"></script>
-  <script src="js/jquery.prettyPhoto.js"></script>
-
-  <!-- CUSTOM PLUGINS -->
-  <script src="js/custom.js"></script>
-  <script src="js/main.js"></script>
-
-  <script src="js/syntax-highlighter/scripts/shCore.js"></script>
-  <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
-  <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
-  <script src="js/syntax-highlighter/scripts/shBrushJScript.js"></script>
 
 </body>
 
+<script src="js/jquery.min.js"></script>
+  <script> 
+    $(function () {
+      $("#navbar").load("html/navbar.ejs");
+    });
+  </script>
+  <script src="js/bootstrap.min.js" async></script>
+  <script src="js/retina.js" async></script>
+  <script src="js/jquery.fitvids.js" async></script>
+  <script src="js/wow.js" async></script>
+  <script src="js/jquery.prettyPhoto.js" async></script>
+
+  <!-- CUSTOM PLUGINS -->
+  <script src="js/custom.js" async></script>
+  <script src="js/main.js"async></script>
+
+  <script src="js/syntax-highlighter/scripts/shCore.js" async></script>
+  <script src="js/syntax-highlighter/scripts/shBrushXml.js" async></script>
+  <script src="js/syntax-highlighter/scripts/shBrushCss.js" async></script>
+  <script src="js/syntax-highlighter/scripts/shBrushJScript.js" async></script>
 </html>
