@@ -67,68 +67,73 @@
 
       </section>
       <!-- end section -->
-
       <div class="row">
 
-
         <div class="col-md-9">
-          <section class="welcome">
+
+          <section id="line1">
 
             <div class="row">
               <div class="col-md-12 left-align">
-                <h2 class="dark-text">Overview<hr></h2>
-                <div class="row">
-
-                  <div class="col-md-12 full">
-                    <div class="intro1">
-                      <ul>
-                        <li><strong>Item Name : </strong>Low Cost Air Quality Sensors</li>
-                        <li><strong>Item Version : </strong> v 1.0</li>
-                        <!-- <li><strong>Author  : </strong> <a href="http://themeforest.net/user/surjithctly" target="_blank">Surjith S M</a></li>
-                        <li><strong>Support Forum : </strong> <a href="https://support.surjithctly.in/forums" target="_blank">https://support.surjithctly.in/forums</a></li> -->
-                      </ul>
-                    </div>
-
-                    <hr>
-                    <div>
-                      <p>This documentation should outline all of the equipment and steps needed to prepare the Bergin lab low-cost air quality sensors. We have put these packages together in two different ways:
-                        <!-- <strong>You are awesome!</strong> -->
-                        <!-- <br> You are entitled to get free lifetime updates to this product + exceptional support from the author directly. -->
-                        <ul>
-                          <li><strong>Faster but potentially more expensive:  </strong>Have a company build the printed circuit boards and provide them to us with a lot of the parts already soldered on (you can either provide a bill of materials, outlining
-                            all of the additional parts that need to be purchased and where they can be purchased from, or you can send some or all of these parts directly to the PCB manufacturer to solder onto the boards)</li>
-                          <li><strong>Cheaper but slower: </strong>Order the PCBs, purchase all of the parts separately and solder the parts onto the boards ourselves in the lab</li>
-                        </ul>
-                      </p>
-
-                      <!-- <p>This documentation is to help you regarding each step of customization. Please go through the documentation carefully to understand how this template is made and how to edit this properly. Basic HTML and CSS knowledge is required
-                        to customize this template. You may learn basics <a href="http://www.w3schools.com/" target="_blank">here</a>, <a href="https://developer.mozilla.org/" target="_blank">here</a> and <a href="http://learn.shayhowe.com/html-css/building-your-first-web-page/"
-                          target="_blank">here</a>. </p> -->
-
-                      <p>If you are doing this in India (or anywhere outside of the US) you would need to work with a PCB printing company to make sure they can print our design. We have worked with the same company a few times now so have worked out the
-                        problems, but it was a slow process to start. I have provided the files that we sent to the PCB company along with this documentation.
-                      </p>
-
-                      <!-- <div class="intro2 clearfix">
-                        <p><i class="fa fa-exclamation-triangle"></i> Be careful while editing the template. If not edited properly, the design layout may break completely.
-                          <br> No support is provided for faulty customization.
-                        </p>
-                      </div> -->
-
-                    </div>
-                  </div>
-
-                </div>
-                <!-- end row -->
+                <h2 class="dark-text">Professionally Designed Enclosures<hr></h2>
               </div>
+              <!-- end col -->
             </div>
-          </section>
-        </div>
-        <!-- end row -->
+            <!-- end row -->
 
-        </section>
-        <!-- end section -->
+            <h1>Photos and Diagrams for Setup</h1>
+            <ul>
+              <li>
+                <h3>Exterior/closed view of sensor package</h3>
+                <img src="images/professionalenclosure/exteriorview.png" alt="exteriorview">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+
+              <li>
+                <h3>Internal view of sensor package (top and bottom)</h3>
+                <p>NOTE: the CO2 sensor could be replaced with Alphasense gas sensors to measure O3, NO2, NO; ensure battery is connected to the barrel jack not the microusb
+                </p>
+                <img src="images/professionalenclosure/internaltop.png" alt="internaltop">
+                <br/>
+                <br/>
+                <img src="images/professionalenclosure/internalbottom.png" alt="internalbottom">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+
+              <li>
+                <h3>End view of sensor package  a) out of case b) with endplate on</h3>
+                <img src="images/professionalenclosure/endview.png" alt="endview">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+            </ul>
+
+            <h1>Sensors Labeling Strategy</h1>
+            <p>The sensors are labeled with a series of four, two digit numbers in the format “Box01_02_03_04”. The numbers are for Teensy, Alphasense, PM and CO2 respectively. The Teensy number is identical to the PM number, and it is found on the green
+              tape on the PM fan sensor. The Alphasense number is the last two digits found on the white tag on the green Alphasense circuit board. The PM number is found on the green tape on the PM fan sensor. The CO2 number is found on the piece of
+              green tape on the Cozir CO2 sensor. If there is no CO2 sensor present, put “00” as the two-digit number. </p>
+            <img src="images/hardcaseenclosure/hardcase-sensorlabel.png" alt="hardcase-sensorlabel">
+            <br/>
+            <br/>
+
+          </section>
+          <!-- end section -->
+
+          </section>
+          <!-- end section -->
+        </div>
+        <!-- // end .col -->
+
       </div>
+      <!-- // end .row -->
       <!-- // end .col -->
 
     </div>
@@ -141,8 +146,8 @@
   <!-- end wrapper -->
 
   <script src="js/jquery.min.js"></script>
-  <script> 
-    $(function () {
+  <script>
+    $(function() {
       $("#navbar").load("html/navbar.ejs");
     });
   </script>

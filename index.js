@@ -45,6 +45,14 @@ app.get('/professionalenclosure', function(req, res){
 	res.render('html/professionalenclosure')
 })
 
+app.get('/diyenclosure', function(req, res){
+	res.render('html/diyenclosure')
+})
+
+app.get('/3dprintedenclosure', function(req, res){
+	res.render('html/3dprintedenclosure')
+})
+
 app.get('/pcbparts', function (req, res) {
 	res.render('html/pcbparts')
 })
