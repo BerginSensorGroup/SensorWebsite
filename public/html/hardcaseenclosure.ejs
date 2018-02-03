@@ -88,18 +88,78 @@
               <li>
                 <h3>2-way Alphasense outdoor/indoor package electrical components, wall power</h3>
                 <p>NOTE: O3 and NO2 (Alphasense) sensors should be flush with the edge of the box but not protruding.</p>
+                <img src="images/hardcaseenclosure/2way-alphasense.png" alt="2way-alphasense">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
               </li>
-              <img src="images/hardcaseenclosure/2way-alphasense.png" alt="2way-alphasense">
-              <li>3-way Alphasense outdoor/indoor package electrical components, wall power.
-                <p>NOTE: O3, NO2, and NO (Alphasense) sensors should be flush with the edge of the box but not protruding.</p>
-              </li>
-              <img src="images/hardcaseenclosure/3way-alphasense.png" alt="3way-alphasense">
 
-              <li>USB-to-wall adaptor if the sensor is going to be plugged in, otherwise it can be powered via battery plugged in using the barrel jack-to-USB cord</li>
-              <li><a href="https://www.arrow.com/en/products/nbf32306/bud-industries">Hard, waterproof case</a></li>
-              <li>The PCB and all of the following parts in the quantities listed (see next page) – these are the parts we had the company solder on, but you could solder them on yourself</li>
+              <li>
+                <h3>3-way Alphasense outdoor/indoor package electrical components, wall power.</h3>
+                <p>NOTE: O3, NO2, and NO (Alphasense) sensors should be flush with the edge of the box but not protruding.</p>
+                <img src="images/hardcaseenclosure/3way-alphasense.png" alt="3way-alphasense">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+
+              <li>
+                <h3>Sensor package running on battery power</h3>
+                <p>NOTE: Ensure battery is connected to the barrel jack not the microusb</p>
+                <img src="images/hardcaseenclosure/sensorpackage-battery.png" alt="sensorpackagebattery">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+
+              <li>
+                <h3>Close up of wiring on PCB</h3>
+                <img src="images/hardcaseenclosure/pcb-wiring.png" alt="pcbwiring">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+
+
+              <li>
+                <h3>CO2 Wiring</h3>
+
+                <img src="images/hardcaseenclosure/CO2-wiring1.png" alt="CO2-wiring1">
+
+                <br/>
+                <br/>
+                <img src="images/hardcaseenclosure/CO2-wiring2.png" alt="CO2-wiring2">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
+
+              <li>
+                <h3>Outdoor/Indoor Package Case Vents/Closed view of sensor package</h3>
+                <img src="images/hardcaseenclosure/case-vents.png" alt="case-vents">
+                <br/>
+                <br/>
+                <br/>
+                <img src="images/hardcaseenclosure/package-closedview.png" alt="package-closedview">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </li>
             </ul>
 
+            <h1>Sensors Labeling Strategy</h1>
+            <p>The sensors are labeled with a series of four, two digit numbers in the format “Box01_02_03_04”. The numbers are for Teensy, Alphasense, PM and CO2 respectively. The Teensy number is identical to the PM number, and it is found on the green
+              tape on the PM fan sensor. The Alphasense number is the last two digits found on the white tag on the green Alphasense circuit board. The PM number is found on the green tape on the PM fan sensor. The CO2 number is found on the piece of
+              green tape on the Cozir CO2 sensor. If there is no CO2 sensor present, put “00” as the two-digit number. </p>
+            <img src="images/hardcaseenclosure/hardcase-sensorlabel.png" alt="hardcase-sensorlabel">
+            <br/>
+            <br/>
 
           </section>
           <!-- end section -->
@@ -124,8 +184,8 @@
   <!-- end wrapper -->
 
   <script src="js/jquery.min.js"></script>
-  <script> 
-    $(function () {
+  <script>
+    $(function() {
       $("#navbar").load("html/navbar.ejs");
     });
   </script>
@@ -142,29 +202,6 @@
   <!-- CUSTOM PLUGINS -->
   <script src="js/custom.js"></script>
   <script src="js/main.js"></script>
-
-  <!-- <script>
-    function tabClicked() {
-      localStorage.setItem('active-tab', $(event.currentTarget).attr('href'));
-    }
-
-    window.onload = function() {
-      var activeTab = localStorage.getItem('active-tab');
-      // and trigger that tab
-      if (activeTab) {
-        $('[href="' + activeTab + '"]').tab('show');
-      }
-    }
-
-    window.onfocus = function() {
-      var activeTab = localStorage.getItem('active-tab');
-      // and trigger that tab
-      if (activeTab) {
-        $('[href="' + activeTab + '"]').tab('show');
-      }
-    }
-  </script> -->
-
   <script src="js/syntax-highlighter/scripts/shCore.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
