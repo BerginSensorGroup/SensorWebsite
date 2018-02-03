@@ -57,8 +57,8 @@ app.get('/pcbparts', function (req, res) {
 	res.render('html/pcbparts')
 })
 
-app.get('/fielddeployment',function(req,res){
-	res.render('html/fielddeployment')
+app.get('/fielddeployment-hardcase',function(req,res){
+	res.render('html/fielddeployment-hardcase')
 })
 
 app.get('/sensortesting', function(req,res){
