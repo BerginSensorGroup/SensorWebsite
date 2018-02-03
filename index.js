@@ -97,10 +97,6 @@ app.get('/additionalfiles', function(req,res){
 	res.render('html/additionalfiles')
 })
 
-app.get('/assemblepackages', function (req, res) {
-	res.render('html/assemblepackages')
-})
-
 app.get('/chart/:deviceid', function (req, res) {
 	console.log("Device Requested: " + req.params.deviceid);
 	db.getDevice(req.params.deviceid, function (err, results) {
