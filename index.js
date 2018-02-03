@@ -89,20 +89,16 @@ app.get('/teensysoftware-programming', function(req,res){
 	res.render('html/teensysoftware-programming')
 })
 
+app.get('/sdcardprogramming', function(req,res){
+	res.render('html/sdcardprogramming')
+})
+
+app.get('/additionalfiles', function(req,res){
+	res.render('html/additionalfiles')
+})
+
 app.get('/assemblepackages', function (req, res) {
 	res.render('html/assemblepackages')
-})
-
-app.get('/appendixb', function(req,res){
-	res.render('html/appendixb')
-})
-
-app.get('/appendixc', function(req,res){
-	res.render('html/appendixc')
-})
-
-app.get('appendixd', function(req,res){
-	res.render('html/appendixd')
 })
 
 app.get('/chart/:deviceid', function (req, res) {

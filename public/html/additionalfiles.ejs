@@ -62,7 +62,7 @@
           <!-- end 12 -->
 
           <!-- Navigation Tabs at Top of Webpage-->
-         <div id="navbar"></div>
+          <div id="navbar"></div>
 
         </div>
         <!-- end row -->
@@ -71,30 +71,34 @@
       <!-- end section -->
 
       <div class="row">
+
         <div class="col-md-9">
-          <section id="line7">
+
+          <section id="line1">
 
             <div class="row">
-
-              <h4 id="line7_1">Appendix D: Additional Files You May Need</h4>
-
-              <p>The following files should have been provided to you along with this document and/or may be necessary to complete the steps outlined here:</p>
-              <ol>
-                <li><a href="https://github.com/BerginSensorGroup/Gerber-Files/archive/master.zip">Gerber files to send in to PCB manufacturer</a></li>
-                <li>Bill of materials (excel document) to send to PCB manufacturer if ordering PCB with parts soldered on</li>
-                <li><a href="https://github.com/BerginSensorGroup/Teensy-Code-and-Libraries/archive/master.zip">Code to upload to the teensy (a .ino file) and Teensy Libraries (can also be found online)</a></li>
-                <li><a href="https://github.com/BerginSensorGroup/SD-Card-Template-Files/archive/master.zip">Template files to upload to the SD card (CALI.txt, LAB.txt, TEENSY.txt)</a></li>
-                <li><a href="https://github.com/BerginSensorGroup/RCode-Calibrator-Plotter/archive/master.zip">Folders containing the R plotter and calibrator files for running the apps (the code files), and empty named files for housing the versions of the files as the code runs</a></li>
-              </ol>
+              <div class="col-md-12 left-align">
+                <h2 class="dark-text">Additional Files You May Need<hr></h2>
+              </div>
               <!-- end col -->
             </div>
             <!-- end row -->
-          </section>
-          <!-- end section -->
+
+            <p>The following files may be necessary to successfully construct the sensor package.</p>
+            <ol>
+              <li><a href="https://github.com/BerginSensorGroup/Gerber-Files/archive/master.zip">Gerber files to send in to PCB manufacturer</a></li>
+              <li>Bill of materials (excel document) to send to PCB manufacturer if ordering PCB with parts soldered on</li>
+              <li><a href="https://github.com/BerginSensorGroup/Teensy-Code-and-Libraries/archive/master.zip">Code to upload to the teensy (a .ino file) and Teensy Libraries (can also be found online)</a></li>
+              <li><a href="https://github.com/BerginSensorGroup/SD-Card-Template-Files/archive/master.zip">Template files to upload to the SD card (CALI.txt, LAB.txt, TEENSY.txt)</a></li>
+              <li><a href="https://github.com/BerginSensorGroup/RCode-Calibrator-Plotter/archive/master.zip">Folders containing the R plotter and calibrator files for running the apps (the code files), and empty named files for housing the versions of the files as the code runs</a></li>
+            </ol>
+
 
           </section>
           <!-- end section -->
 
+          </section>
+          <!-- end section -->
         </div>
         <!-- // end .col -->
 
@@ -108,8 +112,8 @@
   <!-- end wrapper -->
 
   <script src="js/jquery.min.js"></script>
-  <script> 
-    $(function () {
+  <script>
+    $(function() {
       $("#navbar").load("html/navbar.ejs");
     });
   </script>
@@ -122,7 +126,6 @@
   <!-- CUSTOM PLUGINS -->
   <script src="js/custom.js"></script>
   <script src="js/main.js"></script>
-
   <script src="js/syntax-highlighter/scripts/shCore.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
   <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
