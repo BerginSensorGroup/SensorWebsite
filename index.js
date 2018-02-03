@@ -61,24 +61,36 @@ app.get('/fielddeployment-hardcase',function(req,res){
 	res.render('html/fielddeployment-hardcase')
 })
 
+app.get('/fielddeployment-diy',function(req,res){
+	res.render('html/fielddeployment-diy')
+})
+
 app.get('/sensortesting', function(req,res){
 	res.render('html/sensortesting')
 })
 
-app.get('/datavisualization', function(req,res){
-	res.render('html/datavisualization')
+app.get('/datavisualization-install', function(req,res){
+	res.render('html/datavisualization-install')
 })
 
-app.get('/teensysoftware', function(req,res){
-	res.render('html/teensysoftware')
+app.get('/datavisualization-application', function(req,res){
+	res.render('html/datavisualization-application')
+})
+
+app.get('/teensysoftware-mac', function(req,res){
+	res.render('html/teensysoftware-mac')
+})
+
+app.get('/teensysoftware-pc', function(req,res){
+	res.render('html/teensysoftware-pc')
+})
+
+app.get('/teensysoftware-programming', function(req,res){
+	res.render('html/teensysoftware-programming')
 })
 
 app.get('/assemblepackages', function (req, res) {
 	res.render('html/assemblepackages')
-})
-
-app.get('/appendixa', function(req,res){
-	res.render('html/appendixa')
 })
 
 app.get('/appendixb', function(req,res){

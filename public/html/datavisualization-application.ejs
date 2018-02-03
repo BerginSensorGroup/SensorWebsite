@@ -63,6 +63,7 @@
 
           <!-- Navigation Tabs at Top of Webpage-->
           <div id="navbar"></div>
+
         </div>
         <!-- end row -->
 
@@ -77,34 +78,67 @@
 
             <div class="row">
               <div class="col-md-12 left-align">
-                <h2 class="dark-text">Sensor Testing<hr></h2>
+                <h2 class="dark-text">Data Visualization Plotter and Calibrator<hr></h2>
               </div>
               <!-- end col -->
             </div>
             <!-- end row -->
 
-            <ol type="I">
-              <li>Once you think you have the sensors working, you should test them over an extended period of time. Co-locate your sensors (close to a reference instrument if available), and let them run for a few hours, or longer. Make sure that when you
-                lug them in the red LED flashes and then remains on, but blinks every minute, indicating that data are being logged. If LED is flashing, ensure the SD card is properly inserted and try disconnecting the power source (wall or battery) and
-                then reconnecting.</li>
-              <br>
+            <h4>Using the Plotter App</h4>
+            <ol>
+              <li>Open "Plotter" folder</li>
+              <img src="images/plotter/open-plotter.png" alt="Open Plotter folder">
+
               <li>Download the data. Remove the SD card from the package and download the files to your computer. Do not delete the files on the SD card. Replace the SD card and restart the teensy by disconnecting and reconnecting power. NOTE: Each SD card
                 belongs with a specific sensor please make sure the number on the SD card matches the box number. You can also find the box number by opening the files on the SD card.</li>
-              <br>
-              <li>Check the data to make sure all values seem appropriate, and that the time and date are correct. You can quickly glance at the data in the “TEENSY.txt” file, but a better way to identify problems is to plot the data (e.g., using the Plotter
-                app in Rstudio). If you look at the instantaneous values being reported by the Arduino serial monitor there will be noise and values will be inconsistent. This may be true with some of the 1-minute average values recorded as well especially
-                for the Alphasense gas phase sensors (O3, NO, NO2). PM2.5 indoors in the US is often below 10 µg m-3. Outdoors in India it can be up to a few hundred µg m-3. CO2 is about 400ppm globally but can be much higher near sources of combustion
-                and especially in closed rooms since people exhale high concentrations of CO2. The COZIR sensor we use measures up to a maximum of 2000ppm. There is still some uncertainty with the values reported by the O3, NO, and NO2 sensors so values
-                cannot yet be compared with ambient concentrations. You can visualize the data from the teensy file using the R application to plot PM (or other pollutants), and temperature and humidity. If collocated, we expect minimal variation in the
-                data recorded by the sensors. To quickly view the data from multiple sensors simultaneously, use the “Plotter” app in RStudio. If you do not yet have R and Shiny installed on your computer, see Appendix C.</li>
-              <br>
-              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload the code.</li>
-              <br>
-              <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You should be able to see the data being read in real-time. As the data appear, check if the date and time are correct. This also allows
-                you to get a sense of whether the data look reasonable. Note that data will appear every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card must be programmed prior to running the code,
-                otherwise the sensor will not log data. Every time you plug the sensor package in the LED will flicker red on start-up and then remain solid, as it starts to record data. Every time (e.g., every minute) data are recorded to the SD card
-                the LED should flicker again.</li>
+              <img src="images/plotter/working-directory.png" alt="Set as working directory">
+
+              <li>In the folder “Raw Data”, place the folder whose files are to be calibrated. This folder should be named based on the site location and date data was collected for example: “Indoor_home4_boxID000000_07312016” In the example below, the user
+                created folder “061716” to hold the sensor file(s).
+              </li>
+              <img src="images/plotter/raw-data.png" alt="files to be calibrated">
+
+              <li>Open app.R in “Plotter” folder.</li>
+              <img src="images/plotter/open-app.png" alt="open app.R in plotter">
+
+              <li>Type in folder name under “EDIT HERE”. In the example below, the folder name is “061716”.</li>
+              <img src="images/plotter/edit-folder.png" alt="edit folder name">
+
+              <li>Click “run app” button at the top of the browser.</li>
+              <img src="images/plotter/run-app.png" alt="run app">
+
+              <li>The app interface should look similar to the following: From here you can visualize different pollutants from different packages. Use the top slider bar to select your desired time period. The bottom plot shows temperature and RH for comparison.</li>
+              <img src="images/plotter/app-interface.png" alt="app interface">
             </ol>
+
+            <h4>Using the Calibrator App (used to calibrate sensor data using comparison with a reference monitor):</h4>
+            <ol>
+              <li>Open “Calibrator” folder</li>
+              <img src="images/calibrator/open-calibrator.png" alt="Open Calibrator Folder">
+
+              <li>Set this as the working directory.</li>
+              <img src="images/calibrator/working-directory.png" alt="Set as working directory">
+
+              <li>In the folder “Raw Data”, place the folder whose files are to be calibrated. Make sure every file is in the folder, including the file that will be used as the reference. In the example below, the user created folder “060116” to hold the
+                sensor files.</li>
+
+              <!-- MISSING PHOTO   -->
+              <!-- <img src="images/calibrator/raw-data.png" alt="files to be calibrated"> -->
+
+              <li>Open app.R in “Calibrator” folder.</li>
+              <img src="images/calibrator/open-app.png" alt="open app.R in Calibrator">
+
+              <li>Type in folder name under “EDIT HERE”. In the example below, the folder name is “060116”
+              </li>
+              <img src="images/calibrator/edit-folder.png" alt="edit calibrator folder name">
+
+              <li>Click “Run App” button at the top of the browser. The csv file with the calibration constants will be placed in “Data>Calibration Constants”.</li>
+              <img src="images/calibrator/run-app.png" alt="run app">
+
+              <li>The app interface should look similar to the following:</li>
+              <img src="images/calibrator/app-interface.png" alt="app interface">
+            </ol>
+
 
 
           </section>
