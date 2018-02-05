@@ -1,16 +1,17 @@
 var express = require('express')
-var model = require('./model.js')
-var controller = require('./controller.js')
-var db = require('./db.js')
+var fs = require('fs')
+var controllers = require('./controllers')
 var path = require('path')
 var bodyParser = require('body-parser')
+var model = require('./model.js')
+var db = require('./db.js')
 var app = express()
 
 // Use EJS template engine
 app.set('view engine', 'ejs')
 
 // Set views directory to public
-app.set('views', path.join(__dirname, 'public'))
+// app.set('views', path.join(__dirname, 'views'))
 
 // Static files (html/css)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -24,173 +25,103 @@ app.use(bodyParser.json());
 // Define the port to run on
 app.set('port', process.env.PORT || 3000);
 
-// Home Page
-app.get('/', function (req, res) {
-	res.render('html/index');
-})
+// Load All Routes
+app.use('/', controllers)
 
-app.get('/overview', function (req, res) {
-	res.render('html/overview')
-})
+// app.get('/chart/:deviceid', function (req, res) {
+// 	console.log("Device Requested: " + req.params.deviceid);
+// 	db.getDevice(req.params.deviceid, function (err, results) {
+// 		if (err) {
+// 			console.log(err);
+// 		}
+// 		else {
+// 			var datapoints=[];
+// 			var datapoints_event_id_pm10 = [];
+// 			var datapoints_event_id_pm25 = [];
+// 			var datapoints_event_id_pm100 = [];
+// 			var datapoints_event_id_tpm10 = [];
+// 			var datapoints_event_id_tpm25 = [];
+// 			var datapoints_event_id_tpm100 = [];
+// 			console.log("Results returned");
+// 			for (i = 1; i<results.length; i = i + 1) {
+// 				datapoints_event_id_pm10.push({
+// 					x: results[i].event_id,
+// 					y: results[i].pm10,
+// 				});
+// 				datapoints_event_id_pm25.push({
+// 					x: results[i].event_id,
+// 					y: results[i].pm25,
+// 				});
+// 				datapoints_event_id_pm100.push({
+// 					x: results[i].event_id,
+// 					y: results[i].pm100,
+// 				});
+// 				datapoints_event_id_tpm10.push({
+// 					x: results[i].event_id,
+// 					y: results[i].tpm10,
+// 				});
+// 				datapoints_event_id_tpm25.push({
+// 					x: results[i].event_id,
+// 					y: results[i].tpm25,
+// 				});
+// 				datapoints_event_id_tpm100.push({
+// 					x: results[i].event_id,
+// 					y: results[i].tpm100,
+// 				});
 
-app.get('/materials', function (req, res) {
-	res.render('html/materials')
-})
+// 			}
+// 			datapoints = [datapoints_event_id_pm10, datapoints_event_id_pm25, datapoints_event_id_pm100, datapoints_event_id_tpm10, datapoints_event_id_tpm25, datapoints_event_id_tpm100]
+// 			res.render('chart', {
+// 				datapoints : datapoints,
+// 			});
+// 		}
+// 	})
+// })
 
-app.get('/hardcaseenclosure', function(req,res){
-	res.render('html/hardcaseenclosure')
-})
+// // Route Inserts PM2 Data
+// app.post('/air', function (req, res) {
+// 	console.log(req.body);
+// 	model.air(req.body, function (err, data) {
+// 		if (err) {
+// 			console.log(err);
+// 		}
+// 		else {
+// 			console.log(data);
+// 			res.send('Data Inserted');
+// 		}
+// 	});
+// 	// res.send('Inserting Air Information!');
+// })
 
-app.get('/professionalenclosure', function(req, res){
-	res.render('html/professionalenclosure')
-})
-
-app.get('/diyenclosure', function(req, res){
-	res.render('html/diyenclosure')
-})
-
-app.get('/3dprintedenclosure', function(req, res){
-	res.render('html/3dprintedenclosure')
-})
-
-app.get('/pcbparts', function (req, res) {
-	res.render('html/pcbparts')
-})
-
-app.get('/fielddeployment-hardcase',function(req,res){
-	res.render('html/fielddeployment-hardcase')
-})
-
-app.get('/fielddeployment-diy',function(req,res){
-	res.render('html/fielddeployment-diy')
-})
-
-app.get('/sensortesting', function(req,res){
-	res.render('html/sensortesting')
-})
-
-app.get('/datavisualization-install', function(req,res){
-	res.render('html/datavisualization-install')
-})
-
-app.get('/datavisualization-application', function(req,res){
-	res.render('html/datavisualization-application')
-})
-
-app.get('/teensysoftware-mac', function(req,res){
-	res.render('html/teensysoftware-mac')
-})
-
-app.get('/teensysoftware-pc', function(req,res){
-	res.render('html/teensysoftware-pc')
-})
-
-app.get('/teensysoftware-programming', function(req,res){
-	res.render('html/teensysoftware-programming')
-})
-
-app.get('/sdcardprogramming', function(req,res){
-	res.render('html/sdcardprogramming')
-})
-
-app.get('/additionalfiles', function(req,res){
-	res.render('html/additionalfiles')
-})
-
-app.get('/chart/:deviceid', function (req, res) {
-	console.log("Device Requested: " + req.params.deviceid);
-	db.getDevice(req.params.deviceid, function (err, results) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			var datapoints=[];
-			var datapoints_event_id_pm10 = [];
-			var datapoints_event_id_pm25 = [];
-			var datapoints_event_id_pm100 = [];
-			var datapoints_event_id_tpm10 = [];
-			var datapoints_event_id_tpm25 = [];
-			var datapoints_event_id_tpm100 = [];
-			console.log("Results returned");
-			for (i = 1; i<results.length; i = i + 1) {
-				datapoints_event_id_pm10.push({
-					x: results[i].event_id,
-					y: results[i].pm10,
-				});
-				datapoints_event_id_pm25.push({
-					x: results[i].event_id,
-					y: results[i].pm25,
-				});
-				datapoints_event_id_pm100.push({
-					x: results[i].event_id,
-					y: results[i].pm100,
-				});
-				datapoints_event_id_tpm10.push({
-					x: results[i].event_id,
-					y: results[i].tpm10,
-				});
-				datapoints_event_id_tpm25.push({
-					x: results[i].event_id,
-					y: results[i].tpm25,
-				});
-				datapoints_event_id_tpm100.push({
-					x: results[i].event_id,
-					y: results[i].tpm100,
-				});
-
-			}
-			datapoints = [datapoints_event_id_pm10, datapoints_event_id_pm25, datapoints_event_id_pm100, datapoints_event_id_tpm10, datapoints_event_id_tpm25, datapoints_event_id_tpm100]
-			res.render('html/chart', {
-				datapoints : datapoints,
-			});
-		}
-	})
-})
-
-// Route Inserts PM2 Data
-app.post('/air', function (req, res) {
-	console.log(req.body);
-	controller.air(req.body, function (err, data) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			console.log(data);
-			res.send('Data Inserted');
-		}
-	});
-	// res.send('Inserting Air Information!');
-})
-
-// Route Queries for Device information
-app.get('/air/pm2/:deviceid', function (req, res) {
-	console.log("Device Requested: " + req.params.deviceid);
-	db.getDevice(req.params.deviceid, function (err, results) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			console.log("Results returned");
-			res.send(results);
-		}
-	})
-	//res.send('Querying for Device ID');
-})
+// // Route Queries for Device information
+// app.get('/air/pm2/:deviceid', function (req, res) {
+// 	console.log("Device Requested: " + req.params.deviceid);
+// 	db.getDevice(req.params.deviceid, function (err, results) {
+// 		if (err) {
+// 			console.log(err);
+// 		}
+// 		else {
+// 			console.log("Results returned");
+// 			res.send(results);
+// 		}
+// 	})
+// 	//res.send('Querying for Device ID');
+// })
 
 
-//Display device names
-app.get('/air/device', function (req, res) {
-	db.getAllDevices(function (err, results) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			console.log("Results returned");
-			res.send(results);
-		}
-	})
-	//res.send('Querying for Device ID');
-})
+// //Display device names
+// app.get('/air/device', function (req, res) {
+// 	db.getAllDevices(function (err, results) {
+// 		if (err) {
+// 			console.log(err);
+// 		}
+// 		else {
+// 			console.log("Results returned");
+// 			res.send(results);
+// 		}
+// 	})
+// 	//res.send('Querying for Device ID');
+// })
 
 
 // Listen for requests
