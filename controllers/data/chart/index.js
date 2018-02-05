@@ -1,6 +1,6 @@
 const express = require('express')
 let router = express.Router()
-var air = require('../../models/air.js')
+var air = require('../../../models/air.js')
 
 router.get('/', function(req,res){
     res.render('index')

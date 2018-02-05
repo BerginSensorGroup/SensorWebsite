@@ -3,7 +3,6 @@ var fs = require('fs')
 var controllers = require('./controllers')
 var path = require('path')
 var bodyParser = require('body-parser')
-var model = require('./model.js')
 var db = require('./db.js')
 var app = express()
 

@@ -1,6 +1,6 @@
 const express = require('express')
 let router = express.Router()
-var air = require('../../models/air.js')
+var air = require('../../../models/air.js')
 
 // Route Inserts PM2 Data
 router.post('/', function (req, res) {
