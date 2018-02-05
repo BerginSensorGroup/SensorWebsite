@@ -27,8 +27,13 @@ exports.insertData = function (data, done) {
 }
 
 // Retrieves data for this specific device
-exports.get_device = function (photon_id, done) {
-    db.get().query("SELECT * FROM `pm2` WHERE `photon_id` = ?", [photon_id], function (err, results, fields) {
+exports.getDevice = function (photon_id, params, done) {
+    begin_date = params.begin_date;
+    end_date = params.end_date;
+    begin_event = params.begin_event;
+    end_event = params.end_event;
+    
+    db.get().query("SELECT * FROM `pm2` WHERE photon_id = ? and date >= ? and date <= ? and event_id >= ? and event_id <= ?", [photon_id, begin_date, end_date, begin_event, end_event], function (err, results, fields) {
         if (err) {
             console.log('err');
             console.error('error connecting: ' + err.stack);
