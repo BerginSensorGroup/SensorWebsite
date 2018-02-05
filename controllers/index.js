@@ -9,6 +9,4 @@ router.get('/', function(req,res){
 router.use('/instructions', require('./instructions'))
 router.use('/data', require('./data'))
 
-
-
 module.exports= router;

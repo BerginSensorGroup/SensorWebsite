@@ -1,68 +1,57 @@
-var mysql = require('mysql');
 var exports = module.exports;
 
-exports.getDevice = function(photon_id, callback){
-  var connection = mysql.createConnection({
-    host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
-    port     : '3306',
-    user     : 'berginlab',
-    password : 'Mike*sandals',
-    database : 'air'
-  });
+var mysql = require('mysql')
+  , async = require('async')
 
-  connection.query("SELECT * FROM `pm2` WHERE `photon_id` = ?", [photon_id], function(err, results, fields){
-    if(err) {
-      console.log('err');
-      console.error('error connecting: ' + err.stack);
-      callback(null, err);
-    }
+var PRODUCTION_DB = 'app_prod_database'
+  , TEST_DB = 'app_test_database'
 
-    console.log("Returned results");
-    connection.end(function(err){
-      if(err)
-      {
-        console.log(err);
-        console.error('error connecting: ' + err.stack);
-      }
-      console.log('Ended connection');
-      callback(null, results);
-    });
-  });
+exports.MODE_TEST = 'mode_test'
+exports.MODE_PRODUCTION = 'mode_production'
+
+var state = {
+  pool: null,
+  mode: null,
 }
 
+exports.connect = function(mode, done) {
+  state.pool = mysql.createPool({
+    host: 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
+    port: '3306',
+    user: 'berginlab',
+    password: 'Mike*sandals',
+    // database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
+    database: 'air'
+  })
+  console.log("Connected to Database!")
+  state.mode = mode
+  done()
+}
 
-//Return all deviceIDs
-var connection = mysql.createConnection({
-  host     : 'berginlabdb.cyatkbygf3ox.us-east-1.rds.amazonaws.com',
-  port     : '3306',
-  user     : 'berginlab',
-  password : 'Mike*sandals',
-  database : 'air'
-});
+exports.get = function() {
+  return state.pool
+}
 
-connection.connect();
+exports.fixtures = function(data) {
+  var pool = state.pool
+  if (!pool) return done(new Error('Missing database connection.'))
 
-exports.getAllDevices = function(callback){
+  var names = Object.keys(data.tables)
+  async.each(names, function(name, cb) {
+    async.each(data.tables[name], function(row, cb) {
+      var keys = Object.keys(row)
+        , values = keys.map(function(key) { return "'" + row[key] + "'" })
 
-  var queryAllDeviceIDS = "SELECT DISTINCT `photon_id` FROM `pm2`"
+      pool.query('INSERT INTO ' + name + ' (' + keys.join(',') + ') VALUES (' + values.join(',') + ')', cb)
+    }, cb)
+  }, done)
+}
 
-  connection.query(queryAllDeviceIDS, function(err, results, fields){
-    if(err) {
-      console.log('err');
-      console.error('error connecting: ' + err.stack);
-      callback(null, err);
-    }
+exports.drop = function(tables, done) {
+  var pool = state.pool
+  if (!pool) return done(new Error('Missing database connection.'))
 
-    console.log("Returned results");
-    connection.end(function(err){
-      if(err)
-      {
-        console.log(err);
-        console.error('error connecting: ' + err.stack);
-      }
-      console.log('Ended connection');
-      callback(null, results);
-    });
-
-  });
+  async.each(tables, function(name, cb) {
+    pool.query('DELETE * FROM ' + name, cb)
+  }, done)
 }

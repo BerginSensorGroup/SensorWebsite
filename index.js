@@ -28,7 +28,15 @@ app.set('port', process.env.PORT || 3000);
 // Load All Routes
 app.use('/', controllers)
 
-// Listen for requests
-app.listen(app.get('port'), function () {
-	console.log('Sensor Website listening on port 3000!');
+// Connect to MongoDB on start
+db.connect(db.MODE_PRODUCTION, function (err) {
+	if (err) {
+		console.log('Unable to connect to MySQL.')
+		process.exit(1)
+	} else {
+		app.listen(app.get('port'), function () {
+			console.log('Listening on port 3000...')
+		})
+	}
 })
+

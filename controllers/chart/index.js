@@ -1,7 +1,6 @@
 const express = require('express')
 let router = express.Router()
-var db = require('../../db')
-var model = require('../../model')
+var air = require('../../models/air.js')
 
 router.get('/', function(req,res){
     res.render('index')
@@ -9,7 +8,7 @@ router.get('/', function(req,res){
 
 router.get('/:deviceid', function (req, res) {
     console.log("Device Requested: " + req.params.deviceid);
-    db.getDevice(req.params.deviceid, function (err, results) {
+    air.getDevice(req.params.deviceid, function (err, results) {
         if (err) {
             console.log(err);
         }

@@ -1,12 +1,11 @@
 const express = require('express')
 let router = express.Router()
-var db = require('../../db')
-var model = require('../../model')
+var air = require('../../models/air.js')
 
 // Route Inserts PM2 Data
 router.post('/', function (req, res) {
 	console.log(req.body);
-	model.air(req.body, function (err, data) {
+	air.insertData(req.body, function (err, data) {
 		if (err) {
 			console.log(err);
 		}
@@ -15,36 +14,33 @@ router.post('/', function (req, res) {
 			res.send('Data Inserted');
 		}
 	});
-	// res.send('Inserting Air Information!');
 })
 
 //Display device names
 router.get('/devices', function (req, res) {
-	db.getAllDevices(function (err, results) {
+	air.getAllDevices(function (err, results) {
 		if (err) {
 			console.log(err);
 		}
 		else {
-			console.log("Results returned");
+			console.log("Querying for all devices");
 			res.send(results);
 		}
 	})
-	//res.send('Querying for Device ID');
 })
 
 // Route Queries for Device information
 router.get('/devices/:deviceid', function (req, res) {
 	console.log("Device Requested: " + req.params.deviceid);
-	db.getDevice(req.params.deviceid, function (err, results) {
+	air.getDevice(req.params.deviceid, function (err, results) {
 		if (err) {
 			console.log(err);
 		}
 		else {
-			console.log("Results returned");
+			console.log("Querying for device: " + req.params.deviceid);
 			res.send(results);
 		}
 	})
-	//res.send('Querying for Device ID');
 })
 
 module.exports= router;
