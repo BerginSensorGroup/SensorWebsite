@@ -27,7 +27,7 @@ exports.insertData = function (data, done) {
 }
 
 // Retrieves data for this specific device
-exports.getDevice = function (photon_id, done) {
+exports.get_device = function (photon_id, done) {
     db.get().query("SELECT * FROM `pm2` WHERE `photon_id` = ?", [photon_id], function (err, results, fields) {
         if (err) {
             console.log('err');
@@ -41,7 +41,7 @@ exports.getDevice = function (photon_id, done) {
 }
 
 // Retrieves id's for all devices
-exports.getAllDevices = function (done) {
+exports.getAllDeviceNames = function (done) {
 
     var queryAllDeviceIDS = "SELECT DISTINCT `photon_id` FROM `pm2`"
 

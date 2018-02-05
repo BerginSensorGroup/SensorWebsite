@@ -18,26 +18,29 @@ router.post('/', function (req, res) {
 
 //Display device names
 router.get('/devices', function (req, res) {
-	air.getAllDevices(function (err, results) {
+	air.getAllDeviceNames(function (err, results) {
 		if (err) {
 			console.log(err);
 		}
 		else {
-			console.log("Querying for all devices");
+			console.log("Querying for all device names");
 			res.send(results);
 		}
 	})
 })
 
 // Route Queries for Device information
-router.get('/devices/:deviceid', function (req, res) {
+router.get('/devices/:device_id', function (req, res) {
 	console.log("Device Requested: " + req.params.deviceid);
-	air.getDevice(req.params.deviceid, function (err, results) {
+	var device_id = req.params.device_id;
+	var begin_date = req.query.begin_date;
+	var end_date = req.query.end_date;
+	air.getDevice(device_id, function (err, results) {
 		if (err) {
 			console.log(err);
 		}
 		else {
-			console.log("Querying for device: " + req.params.deviceid);
+			console.log("Querying for device: " + device_id);
 			res.send(results);
 		}
 	})
