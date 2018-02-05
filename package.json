@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/BerginSensorGroup/SensorWebsite#readme",
   "dependencies": {
+    "async": "^2.6.0",
     "body-parser": "^1.18.2",
+    "fs": "0.0.1-security",
     "mysql": "^2.15.0",
     "path": "^0.12.7"
   }
