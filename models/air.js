@@ -1,4 +1,5 @@
 var db = require('../db.js')
+var _ = require('underscore')
 
 // NOTE THIS IS STILL UNTESTED
 exports.insertData = function (data, done) {
@@ -27,12 +28,21 @@ exports.insertData = function (data, done) {
 }
 
 // Retrieves data for this specific device
-exports.getDevice = function (photon_id, params, done) {
-    begin_date = params.begin_date;
-    end_date = params.end_date;
-    begin_event = params.begin_event;
-    end_event = params.end_event;
+exports.getDevice = function (photon_id, new_params, done) {
+    var default_params = {
+		begin_date:'0000-00-00', 
+		end_date: (new Date()).toISOString().substring(0, 10),
+		begin_event:'1',
+		end_event:'2147483647' //max int value 
+    }
     
+    var final_params = _.defaults(new_params,default_params)
+
+    var begin_date = final_params.begin_date;
+    var end_date = final_params.end_date;
+    var begin_event = final_params.begin_event;
+    var end_event = final_params.end_event;
+
     db.get().query("SELECT * FROM `pm2` WHERE photon_id = ? and date >= ? and date <= ? and event_id >= ? and event_id <= ?", [photon_id, begin_date, end_date, begin_event, end_event], function (err, results, fields) {
         if (err) {
             console.log('err');
@@ -41,7 +51,8 @@ exports.getDevice = function (photon_id, params, done) {
         }
 
         done(null, results)
-        console.log("Returned results");
+        console.log("with dates between : " + final_params.begin_date + " and " + final_params.end_date)
+        console.log("with events between : " + final_params.begin_event + " and " + final_params.end_event)
     });
 }
 
