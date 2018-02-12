@@ -1,5 +1,4 @@
 const express = require('express')
-
 let router = express.Router()
 
 router.get('/hardcase', function(req,res){
@@ -17,6 +16,5 @@ router.get('/diy', function(req, res){
 router.get('/3dprinted', function(req, res){
 	res.render('3dprintedenclosure')
 })
-
 
 module.exports= router;
