@@ -1,7 +1,7 @@
 const express = require('express')
 const _ = require('underscore')
 const url = require('url');
-const air = require('./air')
+const device = require('./device')
 const chart = require('./chart')
 const csv = require('./csv')
 let router = express.Router()
@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
 })
 
 router.use('/chart', chart)
-router.use('/air', air)
+router.use('/device', device)
 router.use('/csv', csv)
 
 module.exports = router
