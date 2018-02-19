@@ -1,5 +1,6 @@
 const express = require('express')
 let router = express.Router()
+var _ = require('underscore')
 var air = require('../../../models/air.js')
 
 // Route Inserts PM2 Data
@@ -31,11 +32,17 @@ router.get('/devices', function (req, res) {
 
 // Route Queries for Device information
 router.get('/devices/:device_id', function (req, res) {
-	console.log("Device Requested: " + req.params.deviceid);
+	console.log("Device Requested: " + req.params.device_id);
 	var device_id = req.params.device_id;
-	var begin_date = req.query.begin_date;
-	var end_date = req.query.end_date;
-	air.getDevice(device_id, function (err, results) {
+
+	var new_params ={
+		begin_date:req.query.begin_date,
+		end_date:req.query.end_date,
+		begin_event:req.query.begin_event,
+		end_event:req.query.end_event
+	}
+
+	air.getDevice(device_id, new_params, function (err, results) {
 		if (err) {
 			console.log(err);
 		}
