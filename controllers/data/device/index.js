@@ -7,18 +7,17 @@ router.get('/', function(req,res){
 	res.render('device')
 })
 
-// Route Inserts PM2 Data
-router.post('/', function (req, res) {
-	console.log(req.body);
-	device.insertData(req.body, function (err, data) {
-		if (err) {
-			console.log(err);
+//Route Adds Device NOTE: UNTESTED
+router.post('/add', function(req,res){
+	device.addDevice(req.body.device_id, req.body.project_id, function(err, results){
+		if(err) {
+			console.log(err)
 		}
-		else {
-			console.log(data);
-			res.send('Data Inserted');
+		else{
+			console.log(results)
+			res.redirect('/data/device')
 		}
-	});
+	})
 })
 
 //Display device names

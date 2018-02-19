@@ -12,28 +12,26 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
-    if (req.body.data_type == "Graphical") 
-    {
+    if (req.body.data_type == "Graphical") {
         return res.redirect(url.format(
-        {
-            pathname: "/data/chart/" + req.body.device_id,
-            query: _.pick(req.body, _.identity)
-        }))
+            {
+                pathname: "/data/chart/" + req.body.device_id,
+                query: _.pick(req.body, _.identity)
+            }))
     }
-    else if(req.body.data_type == "Download-CSV")
-    {
+    else if (req.body.data_type == "Download-CSV") {
         return res.redirect(url.format
-        ({
-            pathname: "/data/csv/download/" + req.body.device_id,
-            query: _.pick(req.body, _.identity)
-        }))
+            ({
+                pathname: "/data/csv/download/" + req.body.device_id,
+                query: _.pick(req.body, _.identity)
+            }))
     }
-    else{
+    else {
         return res.redirect(url.format
-        ({
+            ({
                 pathname: "/data/csv/upload/" + req.body.device_id,
                 query: _.pick(req.body, _.identity)
-        }))
+            }))
     }
 })
 

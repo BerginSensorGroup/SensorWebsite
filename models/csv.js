@@ -18,7 +18,7 @@ exports.createCSV = function (device_id, new_params, done) {
     var end_event = final_params.end_event;
     var filename = 'test_csv.xlsx'
 
-    db.get().query("SELECT * FROM `pm2` WHERE device_id = ? and date >= ? and date <= ? and event_id >= ? and event_id <= ?", [device_id, begin_date, end_date, begin_event, end_event], function (err, results, fields) {
+    db.get().query("SELECT * FROM `events` WHERE device_id = ? and date >= ? and date <= ? and event_id >= ? and event_id <= ?", [device_id, begin_date, end_date, begin_event, end_event], function (err, results, fields) {
         if (err) {
             console.log('err');
             console.error('error connecting: ' + err.stack);
