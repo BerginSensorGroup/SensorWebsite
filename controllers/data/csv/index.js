@@ -7,9 +7,14 @@ router.get('/', function (req, res) {
     res.render('data')
 })
 
-router.get('/:deviceid', function (req, res) {
-    var device_id = req.params.deviceid;
-    console.log("Device Requested: " + req.params.deviceid);
+router.get('/upload/:device_id', function(req,res){
+    var device_id = req.params.device_id;
+    console.log("Device Pushing: " + device_id);
+})
+
+router.get('/download/:device_id', function (req, res) {
+    var device_id = req.params.device_id;
+    console.log("Device Requested: " + device_id);
 
     var new_params = {
         begin_date: req.query.begin_date,

@@ -1,12 +1,16 @@
 const express = require('express')
 let router = express.Router()
 var _ = require('underscore')
-var air = require('../../../models/device.js')
+var device = require('../../../models/device.js')
+
+router.get('/', function(req,res){
+	res.render('device')
+})
 
 // Route Inserts PM2 Data
 router.post('/', function (req, res) {
 	console.log(req.body);
-	air.insertData(req.body, function (err, data) {
+	device.insertData(req.body, function (err, data) {
 		if (err) {
 			console.log(err);
 		}
@@ -19,7 +23,7 @@ router.post('/', function (req, res) {
 
 //Display device names
 router.get('/devices', function (req, res) {
-	air.getAllDeviceNames(function (err, results) {
+	device.getAllDeviceNames(function (err, results) {
 		if (err) {
 			console.log(err);
 		}
@@ -42,7 +46,7 @@ router.get('/devices/:device_id', function (req, res) {
 		end_event:req.query.end_event
 	}
 
-	air.getDevice(device_id, new_params, function (err, results) {
+	device.getDevice(device_id, new_params, function (err, results) {
 		if (err) {
 			console.log(err);
 		}

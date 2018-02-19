@@ -1,13 +1,14 @@
 const express = require('express')
 const _ = require('underscore')
 const url = require('url');
+const project = require('./project')
 const device = require('./device')
 const chart = require('./chart')
 const csv = require('./csv')
 let router = express.Router()
 
 router.get('/', function (req, res) {
-    res.render('data')
+    res.render('device')
 })
 
 router.post('/', function (req, res) {
@@ -19,13 +20,14 @@ router.post('/', function (req, res) {
     }
     else {
         return res.redirect(url.format({
-            pathname: "/data/csv/" + req.body.device_id,
+            pathname: "/data/csv/download/" + req.body.device_id,
             query: _.pick(req.body, _.identity)
         }))
     }
 })
 
 router.use('/chart', chart)
+router.use('/project', project)
 router.use('/device', device)
 router.use('/csv', csv)
 

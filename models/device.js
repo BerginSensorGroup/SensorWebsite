@@ -14,7 +14,7 @@ exports.insertData = function (data, done) {
         tpm100: data.tpm100
     }
 
-    db.get().query("INSERT INTO pm2 SET ?", [pmdata], function (err, result) {
+    db.get().query("INSERT INTO events SET ?", [pmdata], function (err, result) {
         if (err) {
             console.log('err');
             console.error('error connecting: ' + err.stack);
@@ -43,7 +43,7 @@ exports.getDevice = function (device_id, new_params, done) {
     var begin_event = final_params.begin_event;
     var end_event = final_params.end_event;
 
-    db.get().query("SELECT * FROM `pm2` WHERE device_id = ? and date >= ? and date <= ? and event_id >= ? and event_id <= ?", [device_id, begin_date, end_date, begin_event, end_event], function (err, results, fields) {
+    db.get().query("SELECT * FROM `events` WHERE device_id = ? and date >= ? and date <= ? and event_id >= ? and event_id <= ?", [device_id, begin_date, end_date, begin_event, end_event], function (err, results, fields) {
         if (err) {
             console.log('err');
             console.error('error connecting: ' + err.stack);
@@ -59,7 +59,7 @@ exports.getDevice = function (device_id, new_params, done) {
 // Retrieves id's for all devices
 exports.getAllDeviceNames = function (done) {
 
-    var queryAllDeviceIDS = "SELECT DISTINCT `device_id` FROM `pm2`"
+    var queryAllDeviceIDS = "SELECT DISTINCT `device_id` FROM `events`"
 
     db.get().query(queryAllDeviceIDS, function (err, results, fields) {
         if (err) {
