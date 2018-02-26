@@ -90,13 +90,10 @@
                         </div>
                         <!-- end row -->
 
-                        <h4>Data</h4>
+                        <h4>Data</h4>  
+                        <h5>Device ID</h5>
+                        <%= device_id  %>
                         <form method="post" action="/data/device/add">
-                            <div>
-                                <label for="public_device_id">Device ID</label>
-                                <br>
-                                <input type="text" name="public_device_id" id="public_device_id" required>
-                            </div>
                             <div>
                                 <label for="upload_csv">CSV</label>
                                 <br>

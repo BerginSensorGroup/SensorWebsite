@@ -3,10 +3,19 @@ const _ = require('underscore')
 const project = require('../../../models/project.js')
 let router = express.Router()
 
-// THIS IS A PLACEHOLDER FOR NOW
+// THIS IS A PLACEHOLDER FOR NOW, NOT FINISHED
 router.get('/', function(req,res){
-    res.render('project');
-})
+    project.getAllProjects(function(err,results)
+    {
+        if(err)
+        {
+            console.log("Error: " + err);
+        }
+        res.render('project', {
+            results:results
+        });
+    });
+});
 
 router.get('/add', function(req,res){
     res.render('project-add');
@@ -16,7 +25,8 @@ router.post('/add', function(req,res){
     var project_name = req.body.project_name;
     var location = req.body.location;
     
-    project.addProject(project_name, location, function(err, result){
+    project.addProject(project_name, location, function(err, result)
+    {
         if(err)
         {
             console.log("Error: " + err);
@@ -26,7 +36,8 @@ router.post('/add', function(req,res){
     });
 }); 
 
-router.get('/added', function(req,res){
+router.get('/added', function(req,res)
+{
     res.render('project-added');
 })
 

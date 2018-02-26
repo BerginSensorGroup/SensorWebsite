@@ -11,7 +11,9 @@ router.get('/', function (req, res) {
 router.get('/upload/:device_id', function(req,res){
     var device_id = req.params.device_id;
     console.log("Device Pushing: " + device_id);
-    res.render('event-upload');
+    res.render('csv-upload', {
+        device_id : device_id
+    });
 })
 
 router.get('/download/:device_id', function (req, res) {
