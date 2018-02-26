@@ -90,32 +90,14 @@
                         </div>
                         <!-- end row -->
 
-                        <h4>Data</h4>
-                        <form method="post" action="/data">
+                        <h4>Data</h4>  
+                        <h5>Device ID</h5>
+                        <%= device_id  %>
+                        <form method="post" action="/data/device/add">
                             <div>
-                                <label for="device_id">Device:</label>
+                                <label for="upload_csv">CSV</label>
                                 <br>
-                                <input type="text" name="device_id" id="device_id" required>
-                            </div>
-                            <div>
-                                <label for="begin_date">Begin Date:</label>
-                                <br>
-                                <input type="text" name="begin_date" id="begin_date" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div>
-                                <label for="end_date">End Date:</label>
-                                <br>
-                                <input type="text" name="end_date" id="end_date" placeholder="YYYY-MM-DD">
-                            </div>
-
-                            <p>Type of Data
-                                <select type="text" id="data_type" name="data_type" class="form-control">
-                                    <option value="Graphical">Graphical</option>
-                                    <option value="CSV">CSV</option>
-                                </select>
-                            </p>
-                            <div class="button">
-                                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                                <input type="file" name="upload_csv" id="upload_csv" required>
                             </div>
                         </form>
                     </section>
@@ -137,7 +119,7 @@
     <script src="/js/jquery.min.js"></script>
     <script> 
         $(function () {
-            $("#navbar").load("/html/navbar.ejs");
+            $("#navbar").load("/html/navbar-data.ejs");
         });
     </script>
     <script src="/js/bootstrap.min.js"></script>

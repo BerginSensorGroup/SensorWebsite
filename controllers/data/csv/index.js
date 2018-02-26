@@ -1,4 +1,5 @@
 const express = require('express')
+const event = require('../../../models/event.js')
 const device = require('../../../models/device.js')
 const csv = require('../../../middleware/csv.js')
 let router = express.Router()
@@ -7,9 +8,17 @@ router.get('/', function (req, res) {
     res.render('data')
 })
 
-router.get('/:deviceid', function (req, res) {
-    var device_id = req.params.deviceid;
-    console.log("Device Requested: " + req.params.deviceid);
+router.get('/upload/:device_id', function(req,res){
+    var device_id = req.params.device_id;
+    console.log("Device Pushing: " + device_id);
+    res.render('csv-upload', {
+        device_id : device_id
+    });
+})
+
+router.get('/download/:device_id', function (req, res) {
+    var device_id = req.params.device_id;
+    console.log("Device Requested: " + device_id);
 
     var new_params = {
         begin_date: req.query.begin_date,
@@ -17,7 +26,7 @@ router.get('/:deviceid', function (req, res) {
         begin_event: req.query.begin_event,
         end_event: req.query.end_event
     }
-    device.getDevice(device_id, new_params, function (err, results) {
+    event.getEvent(device_id, new_params, function (err, results) {
         if (err) 
         {
             console.log(err);
