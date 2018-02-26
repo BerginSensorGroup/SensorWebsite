@@ -1,6 +1,6 @@
 const express = require('express')
 let router = express.Router()
-var device = require('../../../models/device.js')
+var event = require('../../../models/event.js')
 
 router.get('/', function(req,res){
     res.render('index')
@@ -16,7 +16,7 @@ router.get('/:deviceid', function (req, res) {
 		begin_event:req.query.begin_event,
 		end_event:req.query.end_event
 	}
-    device.getDevice(req.params.deviceid, new_params, function (err, results) {
+    event.getEvent(req.params.deviceid, new_params, function (err, results) {
         if (err) {
             console.log(err);
         }

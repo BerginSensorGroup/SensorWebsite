@@ -2,11 +2,16 @@ var db = require('../db.js')
 var _ = require('underscore')
 
 // Add and Register Devices NOTE:UNTESTED
-exports.addDevice = function (public_device_id, project_id){
-    db.get().query("INSERT INTO devices SET ?", [public_device_id, project_id], function(err, results, fields){
+exports.addDevice = function (public_device_id, project_name, done){
+    var device = {public_device_id, project_name}
+    db.get().query("INSERT INTO devices SET ?", [device], function(err, results, fields){
         if(err){
+            console.error(err);
             console.error('error connecting: ' + err.stack);
+            done(err, null);
         }
+        console.log("Inserted :" + JSON.stringify(results));
+        console.log("Inserted New Device");
         done(null, results)
     })
 }

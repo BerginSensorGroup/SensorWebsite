@@ -1,10 +1,11 @@
 const express = require('express')
 const _ = require('underscore')
-const url = require('url');
+const url = require('url')
 const project = require('./project')
 const device = require('./device')
 const chart = require('./chart')
 const csv = require('./csv')
+const event = require('./event')
 let router = express.Router()
 
 router.get('/', function (req, res) {
@@ -39,5 +40,6 @@ router.use('/chart', chart)
 router.use('/project', project)
 router.use('/device', device)
 router.use('/csv', csv)
+router.use('/event', event)
 
 module.exports = router

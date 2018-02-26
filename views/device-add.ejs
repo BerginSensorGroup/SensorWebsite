@@ -91,21 +91,16 @@
                         <!-- end row -->
 
                         <h4>Data</h4>
-                        <a href = "/data/project/add">
-                            <div class="button">
-                                <button class="btn btn-outline-primary">Add Button</button>
-                            </div>
-                        </a>
-                        <form method="post" action="/data">
+                        <form method="post" action="/data/device/add">
                             <div>
-                                <label for="project_name">Project:</label>
+                                <label for="public_device_id">Device ID</label>
+                                <br>
+                                <input type="text" name="public_device_id" id="public_device_id" required>
+                            </div>
+                            <div>
+                                <label for="project_name">Project Name</label>
                                 <br>
                                 <input type="text" name="project_name" id="project_name" required>
-                            </div>
-                            <div>
-                                <label for="location">Location:</label>
-                                <br>
-                                <input type="text" name="location" id="location" required>
                             </div>
                             <div class="button">
                                 <button type="submit" class="btn btn-outline-primary">Submit</button>
