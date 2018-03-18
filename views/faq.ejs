@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+
+  <title>Low Cost Air Quality Sensors</title>
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/stroke.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  <link rel="stylesheet" type="text/css" href="/js/syntax-highlighter/styles/shCore.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/js/syntax-highlighter/styles/shThemeRDark.css" media="all">
+
+  <!-- MATERIALIZE CSS -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+
+  <!-- CUSTOM -->
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <div class="container">
+
+      <section id="top" class="section docs-heading">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="big-title text-center">
+              <h1>Low-Cost Air Quality Monitoring Packages</h1>
+              <p class="lead">Developed by Mike Bergin Lab at Duke University </p>
+            </div>
+            <!-- end title -->
+          </div>
+          <!-- end 12 -->
+
+          <!-- Navigation Tabs at Top of Webpage-->
+          <div id="navbar"></div>
+
+        </div>
+        <!-- end row -->
+
+      </section>
+      <!-- end section -->
+
+      <div class="row">
+
+        <div class="col-md-9">
+
+          <section id="line1">
+
+            <div class="row">
+              <div class="col-md-12 left-align">
+                <h2 class="dark-text">FAQ<hr></h2>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+
+            <ul>
+              <li>
+                <h1>Sensors Labeling Strategy</h1>
+                <p>The sensors are labeled with a series of four, two digit numbers in the format “Box01_02_03_04”. The numbers are for Teensy, Alphasense, PM and CO2 respectively. The Teensy number is identical to the PM number, and it is found on the green
+                  tape on the PM fan sensor. The Alphasense number is the last two digits found on the white tag on the green Alphasense circuit board. The PM number is found on the green tape on the PM fan sensor. The CO2 number is found on the piece
+                  of green tape on the Cozir CO2 sensor. If there is no CO2 sensor present, put “00” as the two-digit number. </p>
+                <img src="/images/hardcaseenclosure/hardcase-sensorlabel.png" alt="hardcase-sensorlabel">
+                <br/>
+                <br/>
+              </li>
+              <br>
+              <br>
+              <li>
+                <h4>Testing of Teensy Software on Sensors</h4>
+                <ol type="I">
+                  <li>Once you think you have the sensors working, you should test them over an extended period of time. Co-locate your sensors (close to a reference instrument if available), and let them run for a few hours, or longer. Make sure that when
+                    you lug them in the red LED flashes and then remains on, but blinks every minute, indicating that data are being logged. If LED is flashing, ensure the SD card is properly inserted and try disconnecting the power source (wall or battery)
+                    and then reconnecting.</li>
+                  </br>
+                  <li>Download the data. Remove the SD card from the package and download the files to your computer. Do not delete the files on the SD card. Replace the SD card and restart the teensy by disconnecting and reconnecting power. NOTE: Each SD
+                    card belongs with a specific sensor please make sure the number on the SD card matches the box number. You can also find the box number by opening the files on the SD card.</li>
+                  </br>
+                  <li>Check the data to make sure all values seem appropriate, and that the time and date are correct. You can quickly glance at the data in the “TEENSY.txt” file, but a better way to identify problems is to plot the data (e.g., using the
+                    Plotter app in Rstudio). If you look at the instantaneous values being reported by the Arduino serial monitor there will be noise and values will be inconsistent. This may be true with some of the 1-minute average values recorded as
+                    well especially for the Alphasense gas phase sensors (O3, NO, NO2). PM2.5 indoors in the US is often below 10 µg m-3. Outdoors in India it can be up to a few hundred µg m-3. CO2 is about 400ppm globally but can be much higher near
+                    sources of combustion and especially in closed rooms since people exhale high concentrations of CO2. The COZIR sensor we use measures up to a maximum of 2000ppm. There is still some uncertainty with the values reported by the O3, NO,
+                    and NO2 sensors so values cannot yet be compared with ambient concentrations. You can visualize the data from the teensy file using the R application to plot PM (or other pollutants), and temperature and humidity. If collocated, we
+                    expect minimal variation in the data recorded by the sensors. To quickly view the data from multiple sensors simultaneously, use the “Plotter” app in RStudio. If you do not yet have R and Shiny installed on your computer, see <a href="/instructions/datavisualization/install"><b>Installation of Data Visualization Software</b></a>.</li>
+              </li>
+              </ol>
+              <br>
+              <br>
+              <li>
+                <h4>Adjusting Arduino Code</h4>
+                <li>Changing the time on the clock: Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line), adjust time as desired (ex. system time on computer), and re-upload the code.</li>
+              </li>
+              </ol>
+
+            </ul>
+
+
+          </section>
+          <!-- end section -->
+
+          </section>
+          <!-- end section -->
+        </div>
+        <!-- // end .col -->
+
+      </div>
+      <!-- // end .row -->
+
+    </div>
+    <!-- // end container -->
+
+  </div>
+  <!-- end wrapper -->
+
+  <script src="/js/jquery.min.js"></script>
+  <script>
+    $(function() {
+      $("#navbar").load("/html/navbar.ejs");
+    });
+  </script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/retina.js"></script>
+  <script src="/js/jquery.fitvids.js"></script>
+  <script src="/js/wow.js"></script>
+  <script src="/js/jquery.prettyPhoto.js"></script>
+
+  <!-- CUSTOM PLUGINS -->
+  <script src="/js/custom.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/syntax-highlighter/scripts/shCore.js"></script>
+  <script src="/js/syntax-highlighter/scripts/shBrushXml.js"></script>
+  <script src="/js/syntax-highlighter/scripts/shBrushCss.js"></script>
+  <script src="/js/syntax-highlighter/scripts/shBrushJScript.js"></script>
+
+</body>
+
+</html>

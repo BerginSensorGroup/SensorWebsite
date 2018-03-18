@@ -30,6 +30,14 @@ router.get('/additionalfiles', function(req,res){
 	res.render('additionalfiles')
 })
 
+router.get('/faq', function(req,res){
+	res.render('faq')
+})
+
+router.get('/photos', function(req,res){
+	res.render('photos')
+})
+
 // Sub Routes
 router.use('/enclosures', enclosures)
 
