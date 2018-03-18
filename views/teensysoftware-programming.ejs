@@ -84,6 +84,9 @@
             </div>
             <!-- end row -->
 
+            <p>We use a Teensy microcontroller to log data to an SD card and to run the sensors. Installation of the Arduino and Teensyduino software is necessary in order to upload the code we have written to the Teensy.
+            </p>
+
             <h4>Setup</h4>
             <ol type="I">
               <li>If you do not already have Arduino/Teensyduino and the necessary libraries on your computer, see Teensy Software Installation for Mac and PC for installation instructions. I use Arduino version 1.6.8, which is not the current version of
@@ -95,7 +98,8 @@
               <li>Open the Blaze air sensor code that you will be using. In the code, find the line RTC.adjust(DateTime(__DATE__, __TIME__)); If this line is commented out (using “//”), remove the back slashes. Upload the code to the teensy. The teensy will
                 use whatever time your computer is running on currently to set the clock – if you would like to program the package for use in another time zone, you will need to first set your computer clock time to that time zone.</li>
               </br>
-              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload the code.</li>
+              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload the code. If you do not do this second upload, the teensy may incorrectly label your dates and times, restarting at the time
+                the code was initially uploaded each time you unplug the sensor and plug it back in.</li>
               </br>
               <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You should be able to see the data being read in real-time. As the data appear, check if the date and time are correct. This also allows
                 you to get a sense of whether the data look reasonable. Note that data will appear every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card must be programmed prior to running the code,
@@ -118,13 +122,7 @@
                 and especially in closed rooms since people exhale high concentrations of CO2. The COZIR sensor we use measures up to a maximum of 2000ppm. There is still some uncertainty with the values reported by the O3, NO, and NO2 sensors so values
                 cannot yet be compared with ambient concentrations. You can visualize the data from the teensy file using the R application to plot PM (or other pollutants), and temperature and humidity. If collocated, we expect minimal variation in the
                 data recorded by the sensors. To quickly view the data from multiple sensors simultaneously, use the “Plotter” app in RStudio. If you do not yet have R and Shiny installed on your computer, see Appendix C.</li>
-              </br>
-              <li>Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line) and re-upload the code.</li>
-              </br>
-              <li>With the Teensy still connected to your computer, look in the “Tools” tab and open the “Serial monitor”. You should be able to see the data being read in real-time. As the data appear, check if the date and time are correct. This also allows
-                you to get a sense of whether the data look reasonable. Note that data will appear every second, but the data being stored to the SD card are averaged each minute. Note also that the SD card must be programmed prior to running the code,
-                otherwise the sensor will not log data. Every time you plug the sensor package in the LED will flicker red on start-up and then remain solid, as it starts to record data. Every time (e.g., every minute) data are recorded to the SD card
-                the LED should flicker again.</li>
+
             </ol>
 
           </section>
