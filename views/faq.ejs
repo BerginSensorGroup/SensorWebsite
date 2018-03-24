@@ -86,7 +86,7 @@
 
             <ul>
               <li>
-                <h1>Sensors Labeling Strategy</h1>
+                <h1>What is the best way to label the sensors?</h1>
                 <p>The sensors are labeled with a series of four, two digit numbers in the format “Box01_02_03_04”. The numbers are for Teensy, Alphasense, PM and CO2 respectively. The Teensy number is identical to the PM number, and it is found on the green
                   tape on the PM fan sensor. The Alphasense number is the last two digits found on the white tag on the green Alphasense circuit board. The PM number is found on the green tape on the PM fan sensor. The CO2 number is found on the piece
                   of green tape on the Cozir CO2 sensor. If there is no CO2 sensor present, put “00” as the two-digit number. </p>
@@ -97,7 +97,7 @@
               <br>
               <br>
               <li>
-                <h4>Testing of Teensy Software on Sensors</h4>
+                <h4>How do I test the Teensy software on the sensors?</h4>
                 <ol type="I">
                   <li>Once you think you have the sensors working, you should test them over an extended period of time. Co-locate your sensors (close to a reference instrument if available), and let them run for a few hours, or longer. Make sure that when
                     you lug them in the red LED flashes and then remains on, but blinks every minute, indicating that data are being logged. If LED is flashing, ensure the SD card is properly inserted and try disconnecting the power source (wall or battery)
@@ -115,12 +115,21 @@
               </li>
               </ol>
               <br>
-              <br>
               <li>
-                <h4>Adjusting Arduino Code</h4>
+                <h4>How do I change the time zone on the clock?</h4>
                 <li>Changing the time on the clock: Once you have uploaded the code, comment out (i.e., add “//” at the beginning of the RTC.adjust line), adjust time as desired (ex. system time on computer), and re-upload the code.</li>
               </li>
               </ol>
+              <br>
+              <li>
+                <h4>What are the power requirements?</h4>
+                <p>We typically use a 5V, 1A adaptor but the voltage regulator can handle up to 9V.</p>
+              </li>
+              <li>
+                <h4>How do I change the data averaging time?</h4>
+                <p>We have typically programmed the sensor packages to record minute averages of all data. However, your application may require data with a higher time resolution. To change the data averaging time, locate this line in the code and change
+                  it to the averaging time (in milliseconds) that suits your application: if (timeElapsed > 60000) { //Take Avg Every Minute</p>
+              </li>
 
             </ul>
 
